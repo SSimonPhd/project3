@@ -8,12 +8,11 @@
     "seed": "node seeds/seed.js",
     "watch": "nodemon server.js"
   },
-  "author": "",
-  "license": "ISC",
    "dependencies": {
     "apollo-server-express": "^3.6.2",
     "express": "^4.17.2",
     "graphql": "^16.3.0",
+		"jsonwebtoken": "^9.0.0",
     "mongoose": "^6.1.8"
   },
   "devDependencies": {

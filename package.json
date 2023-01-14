@@ -2,7 +2,7 @@
   "name": "project3",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js --ignore client",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
@@ -14,8 +14,8 @@
     "type": "git",
     "url": "git+https://github.com/SSimonPhd/project3.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Catherine Polk, Erica Morabito, Adrian Brown, Michael Alvarado, Scott Simon",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/SSimonPhd/project3/issues"
   },
