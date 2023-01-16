@@ -4,7 +4,7 @@ function AddTrip() {
   return (
     <div className='container-sm'>
       {/* Title  */}
-      <h2 className='text-center pt-3'>Add a Trip</h2>
+      <h2 className='text-center mt-5'>Add a Trip</h2>
 
       {/* Form to Add a Trip */}
       <div className='row'>
