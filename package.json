@@ -3,30 +3,25 @@
   "version": "1.0.0",
   "description": "solo traveler",
   "main": "server/server.js",
-
-	"scripts": {
+  "scripts": {
     "start": "node server/server.js --ignore client",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",
     "build": "cd client && npm run build"
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SSimonPhd/project3.git"
   },
-
   "author": "Catherine Polk, Erica Morabito, Adrian Brown, Michael Alvarado, Scott Simon",
   "license": "MIT",
-	
   "bugs": {
     "url": "https://github.com/SSimonPhd/project3/issues",
-
-  "homepage": "https://github.com/SSimonPhd/project3#readme"
-	},
-	
+    "homepage": "https://github.com/SSimonPhd/project3#readme"
+  },
   "devDependencies": {
-    "concurrently": "^7.6.0"
+    "concurrently": "^7.6.0",
+    "sass": "^1.57.1"
   }
 }
