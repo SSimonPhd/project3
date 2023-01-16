@@ -1,7 +1,8 @@
 import React from "react";
-import './App.css';
+// import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Header from './components/Header';
+// import Footer from './components/Footer'
 
 import Login from "./pages/Login";
 import Chats from "./pages/Chats";
@@ -14,13 +15,16 @@ export default function App() {
     <div>
       <Router>
         <Header />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/profile' element={<Profile />} />
-          <Route path="/chats" element={<Chats />} />
-          <Route path="/addtrip" element={<AddTrip />} />
-        </Routes>
+        <div className="container-flex">
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/profile' element={<Profile />} />
+            <Route path="/chats" element={<Chats />} />
+            <Route path="/addtrip" element={<AddTrip />} />
+          </Routes>
+        </div>
+        {/* <Footer /> */}
       </Router>
     </div>
   );
