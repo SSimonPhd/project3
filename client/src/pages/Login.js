@@ -74,7 +74,7 @@ const Login = () => {
 				<Card className="shadow">
 				  <Card.Body>
 					<div className="mb-3 mt-md-4">
-					  <h2 className="fw-bold mb-2 text-uppercase ">Brand</h2>
+					  <h2 className="fw-bold mb-2 text-uppercase ">©The Essentials </h2>
 					  <p className=" mb-5">Please enter your login and password!</p>
 					  <div className="mb-3">
 						<Form>
