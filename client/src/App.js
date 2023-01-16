@@ -9,6 +9,7 @@ import Chats from "./pages/Chats";
 import AddTrip from "./pages/AddTrip";
 import Home from './pages/Home';
 import Profile from './pages/Profile';
+// import Signup from "./pages/Signup";
 
 export default function App() {
   return (

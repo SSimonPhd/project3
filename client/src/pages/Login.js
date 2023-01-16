@@ -2,6 +2,9 @@ import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
+import Particle from '../tsParticles/tsParticle';
+// import Particles from "react-tsparticles";
+// import { loadFull } from "tsparticles";
 
 const projectID = 'c324e0ea-5ec2-4823-a4d1-46eea70540a8';
 
@@ -67,7 +70,8 @@ const Login = () => {
 
 	return (
 		<div>
-		  <Container>
+			<Particle />
+		  <Container>		  
 			<Row className="vh-100 d-flex justify-content-center align-items-center">
 			  <Col md={8} lg={6} xs={12}>
 				<div className="border border-3 border-primary"></div>
@@ -123,6 +127,7 @@ const Login = () => {
 			  </Col>
 			</Row>
 		  </Container>
+		  
 		</div>
 	  );
 };
