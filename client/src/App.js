@@ -14,6 +14,7 @@ import Chats from './pages/Chats';
 import AddTrip from './pages/AddTrip';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
+import Welcome from './pages/Welcome';
 // import Signup from "./pages/Signup";
 
 import './App.css';
@@ -45,6 +46,7 @@ export default function App() {
 			<div className='container-flex content'>
 				<Routes>
 					<Route path='/' element={<Home />} />
+					<Route path='/welcome' element={<Welcome />} />
 					<Route path='/login' element={<Login />} />
 					<Route path='/profile' element={<Profile />} />
 					<Route path='/chats' element={<Chats />} />
