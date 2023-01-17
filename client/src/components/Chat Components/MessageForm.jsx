@@ -39,7 +39,7 @@ const MessageForm = (props) => {
             />
             <label htmlFor='upload-button'>
                 <span className='image-button'>
-                    {/* <PictureOutlined className='picture-icon' /> */}
+                    <PictureOutlined className='picture-icon' />
                 </span>
             </label>
             <input
@@ -50,7 +50,7 @@ const MessageForm = (props) => {
                 onChange={handleUpload.bind(this)}
             />
             <button type='submit' className='send-button'>
-                <SendOutLined className='send-icon' />
+                <SendOutlined className='send-icon' />
             </button>
         </form>
     )

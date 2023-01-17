@@ -43,11 +43,11 @@ const Login = () => {
 		const { username, password, email, firstName, lastName } = props;
 
 		let data = `{
-      "username": ${username},
-      "secret": ${password},
-      "email": ${email},
-      "first_name": ${firstName},
-      "last_name": ${lastName}'
+	"username": ${username},
+    "secret": ${password},
+    "email": ${email},
+    "first_name": ${firstName},
+    "last_name": ${lastName}'
     }`;
 
 		const config = {
@@ -83,12 +83,18 @@ const Login = () => {
 									</h2>
 									<p className=' mb-5'>Please enter your login and password!</p>
 									<div className='mb-3'>
-										<Form>
+										<Form onSubmit={handleSubmit}>
 											<Form.Group className='mb-3' controlId='formBasicEmail'>
 												<Form.Label className='text-center'>
 													Email address
 												</Form.Label>
-												<Form.Control type='email' placeholder='Enter email' />
+												<Form.Control
+													type='email'
+													placeholder='Enter email'
+													value={username}
+													onChange={(e) => setUsername(e.target.value)}
+													required
+												/>
 											</Form.Group>
 
 											<Form.Group
@@ -96,7 +102,13 @@ const Login = () => {
 												controlId='formBasicPassword'
 											>
 												<Form.Label>Password</Form.Label>
-												<Form.Control type='password' placeholder='Password' />
+												<Form.Control
+													type='password'
+													placeholder='Password'
+													value={password}
+													onChange={(e) => setPassword(e.target.value)}
+													required
+												/>
 											</Form.Group>
 											<Form.Group
 												className='mb-3'
@@ -113,6 +125,7 @@ const Login = () => {
 													Login
 												</Button>
 											</div>
+											<h2 className='error'>{error}</h2>
 										</Form>
 										<div className='mt-3'>
 											<p className='mb-0  text-center'>
