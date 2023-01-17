@@ -2,6 +2,9 @@ import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import { Col, Button, Row, Container, Card, Form } from 'react-bootstrap';
+import Particle from '../tsParticles/tsParticle';
+// import Particles from "react-tsparticles";
+// import { loadFull } from "tsparticles";
 
 const projectID = 'c324e0ea-5ec2-4823-a4d1-46eea70540a8';
 
@@ -67,6 +70,7 @@ const Login = () => {
 
 	return (
 		<div>
+			<Particle />
 			<Container>
 				<Row className='vh-100 d-flex justify-content-center align-items-center'>
 					<Col md={8} lg={6} xs={12}>
@@ -79,19 +83,12 @@ const Login = () => {
 									</h2>
 									<p className=' mb-5'>Please enter your login and password!</p>
 									<div className='mb-3'>
-										<Form onSubmit={handleSubmit}>
+										<Form>
 											<Form.Group className='mb-3' controlId='formBasicEmail'>
 												<Form.Label className='text-center'>
 													Email address
 												</Form.Label>
-												<Form.Control
-													type='email'
-													placeholder='Enter email'
-													value={username}
-													onChange={(e) => setUsername(e.target.value)}
-													className='input'
-													required
-												/>
+												<Form.Control type='email' placeholder='Enter email' />
 											</Form.Group>
 
 											<Form.Group
@@ -99,14 +96,7 @@ const Login = () => {
 												controlId='formBasicPassword'
 											>
 												<Form.Label>Password</Form.Label>
-												<Form.Control
-													type='password'
-													placeholder='Password'
-													value={password}
-													onChange={(e) => setPassword(e.target.value)}
-													className='input'
-													required
-												/>
+												<Form.Control type='password' placeholder='Password' />
 											</Form.Group>
 											<Form.Group
 												className='mb-3'
@@ -123,7 +113,6 @@ const Login = () => {
 													Login
 												</Button>
 											</div>
-											<h2 className='error'>{error}</h2>
 										</Form>
 										<div className='mt-3'>
 											<p className='mb-0  text-center'>

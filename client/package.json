@@ -19,7 +19,10 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.6.2",
     "react-scripts": "5.0.1",
-    "web-vitals": "^3.1.1"
+    "react-tsparticles": "^2.7.1",
+    "tsparticles": "^2.7.1",
+    "web-vitals": "^3.1.1",
+    "sass": "^1.57.1"
   },
   "scripts": {
     "start": "react-scripts start",
