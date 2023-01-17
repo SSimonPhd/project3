@@ -12,7 +12,7 @@ const Chats = () => {
 		<ChatEngine
 			height='100vh'
 			projectID={projectID}
-			username={localStorage.getItem('username')}
+			userName={localStorage.getItem('username')}
 			userSecret={localStorage.getItem('password')}
 			renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />}
 			onNewMessage={() =>
