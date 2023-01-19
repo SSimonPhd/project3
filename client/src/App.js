@@ -51,6 +51,7 @@ export default function App() {
 					<Route path='/profile' element={<Profile />} />
 					<Route path='/chats' element={<Chats />} />
 					<Route path='/addtrip' element={<AddTrip />} />
+					<Route path='/signup' element={<Signup />} />
 				</Routes>
 			</div>
 			<Footer />

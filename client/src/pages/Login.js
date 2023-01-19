@@ -3,12 +3,14 @@ import { useState } from 'react';
 import axios from 'axios';
 import { Col, Button, Row, Container, Card, Form } from 'react-bootstrap';
 import Particle from '../tsParticles/tsParticle';
+import {useNavigate} from 'react-router-dom';
 // import Particles from "react-tsparticles";
 // import { loadFull } from "tsparticles";
 
 const projectID = 'c324e0ea-5ec2-4823-a4d1-46eea70540a8';
 
 const Login = () => {
+	let navigate = useNavigate();
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 	const [error, setError] = useState('');
@@ -121,7 +123,7 @@ const Login = () => {
 												</p>
 											</Form.Group>
 											<div className='d-grid'>
-												<Button variant='primary' type='submit'>
+												<Button variant='primary' type='submit' >
 													Login
 												</Button>
 											</div>
@@ -130,7 +132,9 @@ const Login = () => {
 										<div className='mt-3'>
 											<p className='mb-0  text-center'>
 												Don't have an account?{' '}
-												<a href="{''}" className='text-primary fw-bold'>
+												<a  className='text-primary fw-bold' onClick={()=>{
+													navigate("/signup");
+												}}>
 													Sign Up
 												</a>
 											</p>
