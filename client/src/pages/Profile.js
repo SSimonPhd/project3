@@ -9,25 +9,10 @@ function Profile() {
     <div className='container-sm'>
       {/* Title */}
       <h2 className='text-center mt-5'>Your Upcoming Trips</h2>
-
-      {/* Option #1 -- Trips as buttons --> click button and takes you to a new page to read/update/delete trip */}
       <div className='row mt-5 h-75 d-flex flex-row justify-content-center'>
         <div className='col-sm w-75 d-flex flex-row justify-content-around'>
           {/* Here's where the trip data will be presented -- example mock up below */}
-
-          {/* < Trip /> */}
-          <button type="button" class="btn btn-primary btn-lg">Maldives</button>
-          <button type="button" class="btn btn-primary btn-lg">Maldives</button>
-          <button type="button" class="btn btn-primary btn-lg">Maldives</button>
-        </div>
-      </div>
-
-      {/* Option #2 -- Trips as cards --> click update/delete to change data, read on this page */}
-      <div className='row mt-5 h-75 d-flex flex-row justify-content-center'>
-        <div className='col-sm w-75 d-flex flex-row justify-content-around'>
-          {/* Here's where the trip data will be presented -- example mock up below */}
-
-          {/* < Trip /> */}
+          {/* EXAMPLE TRIP CARDS */}
           <div class="card">
               <div class="card-body text-center">
                 <h5 class="card-title">Maldives</h5>
