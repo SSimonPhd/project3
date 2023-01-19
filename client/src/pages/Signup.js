@@ -1,102 +1,98 @@
-// import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import {useNavigate} from 'react-router-dom';
+import { Col, Button, Row, Container, Card, Form } from 'react-bootstrap';
+import Particle from '../tsParticles/tsParticle';
 
-// import { useMutation } from '@apollo/client';
-// import { ADD_PROFILE } from '../utils/mutations';
+const Signup = () => {
+    let navigate = useNavigate();
+    return (
+        <div>
+        <Particle />
+        <Container>
+				<Row className='vh-100 d-flex justify-content-center align-items-center'>
+					<Col md={8} lg={6} xs={12}>
+						<div className='border border-3 border-primary'></div>
+						<Card className='shadow'>
+							<Card.Body>
+								<div className='mb-3 mt-md-4'>
+									<h2 className='fw-bold mb-2 text-uppercase '>
+										©The Essentials{' '}
+									</h2>
+									<p className=' mb-5'>Please enter your Sign Up info!</p>
+									<div className='mb-3'>
+										<Form >
+                                            <Form.Group
+                                                    className='mb-3'
+                                                    controlId='formBasicFirstName'
+                                                >
+                                                    <Form.Label>First name</Form.Label>
+                                                    <Form.Control
+                                                        type='First name'
+                                                        placeholder='First name'
+                                                        													
+                                                    />
+                                                </Form.Group>
+                                            <Form.Group
+                                                    className='mb-3'
+                                                    controlId='formBasicLastName'
+                                                >
+                                                    <Form.Label>Last name</Form.Label>
+                                                    <Form.Control
+                                                        type='Last name'
+                                                        placeholder='Last name'
+                                                        													
+                                                    />
+											</Form.Group>
+											<Form.Group className='mb-3' controlId='formBasicEmail'>
+												<Form.Label className='text-center'>
+													Email address
+												</Form.Label>
+												<Form.Control
+													type='email'
+													placeholder='Enter email'
+																									
+												/>
+											</Form.Group>
+											<Form.Group
+												className='mb-3'
+												controlId='formBasicPassword'
+											>
+												<Form.Label>Password</Form.Label>
+												<Form.Control
+													type='password'
+													placeholder='Password'
+																										
+												/>
+											</Form.Group>
+											
+											<div className='d-grid'>
+												<Button variant='primary' type='submit' onClick={()=>{
+													navigate("/login");
+												}}>
+													Signup
+												</Button>
+											</div>
+											
+										</Form>
+										<div className='mt-3'>
+											<p className='mb-0  text-center'>
+                                            Already registered{' '}
+												<a  className='text-primary fw-bold' onClick={()=>{
+													navigate("/login");
+												}}>
+													Sign In
+												</a>
+											</p>
+										</div>
+									</div>
+								</div>
+							</Card.Body>
+						</Card>
+					</Col>
+				</Row>
+			</Container>
+            </div>
+);
+};
 
-// import Auth from '../utils/auth';
-
-// const Signup = () => {
-//   const [formState, setFormState] = useState({
-//     name: '',
-//     email: '',
-//     password: '',
-//   });
-//   const [addProfile, { error, data }] = useMutation(ADD_PROFILE);
-
-//   // update state based on form input changes
-//   const handleChange = (event) => {
-//     const { name, value } = event.target;
-
-//     setFormState({
-//       ...formState,
-//       [name]: value,
-//     });
-//   };
-
-//   // submit form
-//   const handleFormSubmit = async (event) => {
-//     event.preventDefault();
-//     console.log(formState);
-
-//     try {
-//       const { data } = await addProfile({
-//         variables: { ...formState },
-//       });
-
-//       Auth.login(data.addProfile.token);
-//     } catch (e) {
-//       console.error(e);
-//     }
-//   };
-
-//   return (
-//     <main className="flex-row justify-center mb-4">
-//       <div className="col-12 col-lg-10">
-//         <div className="card">
-//           <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
-//           <div className="card-body">
-//             {data ? (
-//               <p>
-//                 Success! You may now head{' '}
-//                 <Link to="/">back to the homepage.</Link>
-//               </p>
-//             ) : (
-//               <form onSubmit={handleFormSubmit}>
-//                 <input
-//                   className="form-input"
-//                   placeholder="Your username"
-//                   name="name"
-//                   type="text"
-//                   value={formState.name}
-//                   onChange={handleChange}
-//                 />
-//                 <input
-//                   className="form-input"
-//                   placeholder="Your email"
-//                   name="email"
-//                   type="email"
-//                   value={formState.email}
-//                   onChange={handleChange}
-//                 />
-//                 <input
-//                   className="form-input"
-//                   placeholder="******"
-//                   name="password"
-//                   type="password"
-//                   value={formState.password}
-//                   onChange={handleChange}
-//                 />
-//                 <button
-//                   className="btn btn-block btn-info"
-//                   style={{ cursor: 'pointer' }}
-//                   type="submit"
-//                 >
-//                   Submit
-//                 </button>
-//               </form>
-//             )}
-
-//             {error && (
-//               <div className="my-3 p-3 bg-danger text-white">
-//                 {error.message}
-//               </div>
-//             )}
-//           </div>
-//         </div>
-//       </div>
-//     </main>
-//   );
-// };
-
-// export default Signup;
+export default Signup;
