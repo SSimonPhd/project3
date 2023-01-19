@@ -21,7 +21,6 @@
     "homepage": "https://github.com/SSimonPhd/project3#readme"
   },
   "devDependencies": {
-    "concurrently": "^7.6.0",
-    "sass": "^1.57.1"
+    "concurrently": "^7.6.0"
   }
 }
