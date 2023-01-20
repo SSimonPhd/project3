@@ -10,7 +10,7 @@ Solo Traveler web app provides solo travelers a place to connect and plan upcomi
 - This project solves the problem of loneliness on solo trips by enabling travelers to connect.
 - We learned about using the MERN stack, GraphQL, and React.
 
-## Table of Contents (Optional)
+## Table of Contents
 
 - [Installation](#installation)
 - [Usage](#usage)
