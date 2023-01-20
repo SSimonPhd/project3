@@ -4,8 +4,10 @@ import { Col, Button, Row, Container, Card, Form } from 'react-bootstrap';
 import Particle from '../tsParticles/tsParticle';
 import axios from 'axios';
 import { addPerson } from 'react-chat-engine';
+import env from 'react-dotenv';
 
-const projectID = 'c324e0ea-5ec2-4823-a4d1-46eea70540a8';
+const projectID = env.REACT_APP_CE_PUBLIC_KEY;
+console.log(projectID);
 
 const Signup = () => {
 	let navigate = useNavigate();
@@ -16,8 +18,8 @@ const Signup = () => {
 	const [firstName, setFirstName] = useState('');
 	const [lastName, setLastName] = useState('');
 
-	const private_key = '746e6518-7a1d-47aa-9741-69792f54226c';
-	const chatID = '141517';
+	const private_key = env.REACT_APP_CE_PRIVATE_KEY;
+	const chatID = env.REACT_APP_CE_CHAT_ID;
 
 	// Create a user when they sign up for site
 	const createUser = async (e) => {
@@ -29,8 +31,8 @@ const Signup = () => {
 
 		const props = {
 			publicKey: projectID,
-			userName: 'test@test.com',
-			userSecret: 'test1234',
+			userName: env.REACT_APP_CE_ADMIN_USERNAME,
+			userSecret: env.REACT_APP_CE_ADMIN_SECRET,
 		};
 
 		try {

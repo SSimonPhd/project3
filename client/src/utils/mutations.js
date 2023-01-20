@@ -55,4 +55,40 @@ export const ADD_TRIP = gql`
       }
     }
   }
+`;
+
+export const REMOVE_TRIP = gql`
+  mutation removeTrip(
+    $location: String!
+    $note: String!
+  ) {
+    removeTrip(
+      location: $location
+      note: $note
+    ) {
+      token 
+      trip{
+        location
+        note
+      }
+    }
+  }
+`
+
+export const UPDATE_TRIP = gql`
+    mutation updateTrip(
+    $location: String!
+    $note: String!
+  ) {
+    updateTrip(
+      location: $location
+      note: $note
+    ) {
+      token 
+      trip{
+        location
+        note
+      }
+    }
+  }
 `

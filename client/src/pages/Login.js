@@ -3,10 +3,12 @@ import axios from 'axios';
 import { Col, Button, Row, Container, Card, Form } from 'react-bootstrap';
 import Particle from '../tsParticles/tsParticle';
 import { useNavigate } from 'react-router-dom';
+import env from 'react-dotenv';
+
 // import Particles from "react-tsparticles";
 // import { loadFull } from "tsparticles";
 
-const projectID = 'c324e0ea-5ec2-4823-a4d1-46eea70540a8';
+const projectID = env.REACT_APP_CE_PUBLIC_KEY;
 
 const Login = () => {
 	let navigate = useNavigate();
