@@ -1,14 +1,62 @@
-import React, { Component } from 'react';
-import {useNavigate} from 'react-router-dom';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Col, Button, Row, Container, Card, Form } from 'react-bootstrap';
 import Particle from '../tsParticles/tsParticle';
+import axios from 'axios';
+import { addPerson } from 'react-chat-engine';
+
+const projectID = 'c324e0ea-5ec2-4823-a4d1-46eea70540a8';
 
 const Signup = () => {
-    let navigate = useNavigate();
-    return (
-        <div>
-        <Particle />
-        <Container>
+	let navigate = useNavigate();
+
+	const [username, setUsername] = useState('');
+	const [password, setPassword] = useState('');
+	const [email, setEmail] = useState('');
+	const [firstName, setFirstName] = useState('');
+	const [lastName, setLastName] = useState('');
+
+	const private_key = '746e6518-7a1d-47aa-9741-69792f54226c';
+	const chatID = '141517';
+
+	// Create a user when they sign up for site
+	const createUser = async (e) => {
+		e.preventDefault();
+
+		const authObject = {
+			'PRIVATE-KEY': private_key,
+		};
+
+		const props = {
+			publicKey: projectID,
+			userName: 'test@test.com',
+			userSecret: 'test1234',
+		};
+
+		try {
+			await axios
+				.post(
+					'https://api.chatengine.io/users/',
+					{
+						username: username,
+						secret: password,
+						email: email,
+						first_name: firstName,
+						last_name: lastName,
+					}, // Body object
+					{ headers: authObject } // Headers object
+				)
+				.then((r) => console.log(r));
+		} catch (err) {
+			console.error(err);
+		}
+		addPerson(props, chatID, username);
+	};
+
+	return (
+		<div>
+			<Particle />
+			<Container>
 				<Row className='vh-100 d-flex justify-content-center align-items-center'>
 					<Col md={8} lg={6} xs={12}>
 						<div className='border border-3 border-primary'></div>
@@ -20,28 +68,45 @@ const Signup = () => {
 									</h2>
 									<p className=' mb-5'>Please enter your Sign Up info!</p>
 									<div className='mb-3'>
-										<Form >
-                                            <Form.Group
-                                                    className='mb-3'
-                                                    controlId='formBasicFirstName'
-                                                >
-                                                    <Form.Label>First name</Form.Label>
-                                                    <Form.Control
-                                                        type='First name'
-                                                        placeholder='First name'
-                                                        													
-                                                    />
-                                                </Form.Group>
-                                            <Form.Group
-                                                    className='mb-3'
-                                                    controlId='formBasicLastName'
-                                                >
-                                                    <Form.Label>Last name</Form.Label>
-                                                    <Form.Control
-                                                        type='Last name'
-                                                        placeholder='Last name'
-                                                        													
-                                                    />
+										<Form onSubmit={createUser}>
+											<Form.Group
+												className='mb-3'
+												controlId='formBasicFirstName'
+											>
+												<Form.Label>First name</Form.Label>
+												<Form.Control
+													type='First name'
+													placeholder='First name'
+													value={firstName}
+													onChange={(e) => setFirstName(e.target.value)}
+													required
+												/>
+											</Form.Group>
+											<Form.Group
+												className='mb-3'
+												controlId='formBasicLastName'
+											>
+												<Form.Label>Last name</Form.Label>
+												<Form.Control
+													type='Last name'
+													placeholder='Last name'
+													value={lastName}
+													onChange={(e) => setLastName(e.target.value)}
+													required
+												/>
+											</Form.Group>
+											<Form.Group
+												className='mb-3'
+												controlId='formBasicUsername'
+											>
+												<Form.Label>Username</Form.Label>
+												<Form.Control
+													type='Username'
+													placeholder='Username'
+													value={username}
+													onChange={(e) => setUsername(e.target.value)}
+													required
+												/>
 											</Form.Group>
 											<Form.Group className='mb-3' controlId='formBasicEmail'>
 												<Form.Label className='text-center'>
@@ -50,7 +115,9 @@ const Signup = () => {
 												<Form.Control
 													type='email'
 													placeholder='Enter email'
-																									
+													value={email}
+													onChange={(e) => setEmail(e.target.value)}
+													required
 												/>
 											</Form.Group>
 											<Form.Group
@@ -61,27 +128,36 @@ const Signup = () => {
 												<Form.Control
 													type='password'
 													placeholder='Password'
-																										
+													value={password}
+													onChange={(e) => setPassword(e.target.value)}
+													required
 												/>
 											</Form.Group>
-											
+
 											<div className='d-grid'>
-												<Button variant='primary' type='submit' onClick={()=>{
-													navigate("/login");
-												}}>
+												<Button
+													variant='primary'
+													type='submit'
+													// onClick={() => {
+													// 	navigate('/profile');
+													// }}
+												>
 													Signup
 												</Button>
 											</div>
-											
 										</Form>
 										<div className='mt-3'>
 											<p className='mb-0  text-center'>
-                                            Already registered{' '}
-												<a  className='text-primary fw-bold' onClick={()=>{
-													navigate("/login");
-												}}>
+												Already registered{' '}
+												<button
+													type='button'
+													className='text-primary fw-bold'
+													onClick={() => {
+														navigate('/login');
+													}}
+												>
 													Sign In
-												</a>
+												</button>
 											</p>
 										</div>
 									</div>
@@ -91,8 +167,8 @@ const Signup = () => {
 					</Col>
 				</Row>
 			</Container>
-            </div>
-);
+		</div>
+	);
 };
 
 export default Signup;

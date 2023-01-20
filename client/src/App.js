@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  createHttpLink,
+	ApolloClient,
+	InMemoryCache,
+	ApolloProvider,
+	createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import Header from './components/Header';
@@ -15,47 +15,47 @@ import AddTrip from './pages/AddTrip';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Welcome from './pages/Welcome';
-import Signup from "./pages/Signup";
+import Signup from './pages/Signup';
 
 import './App.css';
 
 const httpLink = createHttpLink({
-  uri: '/graphql',
+	uri: '/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('id_token');
-  return {
-    headers: {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : '',
-    },
-  };
+	const token = localStorage.getItem('id_token');
+	return {
+		headers: {
+			...headers,
+			authorization: token ? `Bearer ${token}` : '',
+		},
+	};
 });
 
 const client = new ApolloClient({
-  link: authLink.concat(httpLink),
-  cache: new InMemoryCache(),
+	link: authLink.concat(httpLink),
+	cache: new InMemoryCache(),
 });
 
 export default function App() {
 	return (
 		<ApolloProvider client={client}>
-		<Router>
-			<Header />
-			<div className='container-flex content'>
-				<Routes>
-					<Route path='/' element={<Home />} />
-					<Route path='/welcome' element={<Welcome />} />
-					<Route path='/login' element={<Login />} />
-					<Route path='/profile' element={<Profile />} />
-					<Route path='/chats' element={<Chats />} />
-					<Route path='/addtrip' element={<AddTrip />} />
-					<Route path='/signup' element={<Signup />} />
-				</Routes>
-			</div>
-			<Footer />
-		</Router>
+			<Router>
+				<Header />
+				<div className='container-flex content'>
+					<Routes>
+						<Route path='/' element={<Home />} />
+						<Route path='/welcome' element={<Welcome />} />
+						<Route path='/login' element={<Login />} />
+						<Route path='/profile' element={<Profile />} />
+						<Route path='/chats' element={<Chats />} />
+						<Route path='/addtrip' element={<AddTrip />} />
+						<Route path='/signup' element={<Signup />} />
+					</Routes>
+				</div>
+				<Footer />
+			</Router>
 		</ApolloProvider>
 	);
 }
