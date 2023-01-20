@@ -4,13 +4,13 @@ import { useMutation } from '@apollo/client';
 import { ADD_TRIP } from '../utils/mutations';
 
 function AddTrip() {
-	let navigate = useNavigate();
+  let navigate = useNavigate();
 
-  const [formState, setTripData] = useState({
+  const [formState, setTripState] = useState({
     location: '',
     note: ''
   });
-  
+
   const [createTrip, { error }] = useMutation(ADD_TRIP);
 
   // When the user begins typing --> handle input change
@@ -23,22 +23,25 @@ function AddTrip() {
     event.preventDefault();
 
     try {
-       await createTrip({
+      await createTrip({
         variables: { location: formState.location, note: formState.note }
       });
 
+      const { name, value } = event.target;
+
+      setTripState({
+        ...formState,
+        [name]: value,
+      });
+
       navigate(`/profile`)
-    } catch (err){
+    } catch (err) {
       console.error(err);
     }
-    const { name, value } = event.target;
 
-    setTripData({
-      ...formState, 
-      [name]:value,
-    });
+
   }
- 
+
   return (
     <div className='container-sm'>
       {/* Title  */}
@@ -49,7 +52,7 @@ function AddTrip() {
         <div className='col w-50 d-flex flex-column align-items-center justify-contents-center'>
           <div className="mb-3 w-50">
             <label for="location" className="form-label">Location</label>
-            <input name="location" type="text" className="form-control" id="location"  />
+            <input name="location" type="text" className="form-control" id="location" />
           </div>
           <div className="mb-3 w-50">
             <label for="highlights" className="form-label">Notes</label>

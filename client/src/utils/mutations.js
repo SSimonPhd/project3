@@ -48,11 +48,8 @@ export const ADD_TRIP = gql`
       location: $location
       note: $note
     ) {
-      token
-      trip {
         location
         note
-      }
     }
   }
 `;
