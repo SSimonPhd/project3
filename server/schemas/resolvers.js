@@ -88,7 +88,24 @@ const resolvers = {
           throw new AuthenticationError('No user found');
         }
     },
- 
+
+    updateTrip: async (parent, { location, note, tripId }, context) => {
+      if (context.user) {
+        const user = await User.findById(context.user._id);
+
+        if (!user) {
+          throw new AuthenticationError('No user found');
+        }
+
+        return Trip.findOneAndUpdate(
+          { userId: user._id, _id: tripId }, 
+          {location: location, note: note },
+          { new: true }
+        )
+      }  else {
+        throw new AuthenticationError('No user found');
+      }
+    },
   }
 } 
 

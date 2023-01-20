@@ -29,6 +29,7 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     addTrip(location: String!, note: String!): Trip
     removeTrip(tripId: ID!): Trip
+    updateTrip(location: String!, note: String!, tripId: ID!): Trip
   }
 `;
 
