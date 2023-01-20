@@ -1,4 +1,4 @@
-# Project 3: Solo Traveler web app built with MERN Stack (MongoDB, Express, React, Node) & GraphQL
+# Solo Traveler web app built with MERN Stack (MongoDB, Express, React, Node) & GraphQL
 [![License: MIT](https://img.shields.io/github/license/SSimonPhd/project3?label=license&style=plastic)](https://opensource.org/licenses/MIT)
 
 ## Description
