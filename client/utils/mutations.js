@@ -37,5 +37,22 @@ export const ADD_USER = gql`
         }
       }
     }
-  }
 `;
+
+export const ADD_TRIP = gql`
+  mutation addTrip(
+    $location: String!
+    $note: String!
+  ) {
+    addTrip(
+      location: $location
+      note: $note
+    ) {
+      token
+      trip {
+        location
+        note
+      }
+    }
+  }
+`
