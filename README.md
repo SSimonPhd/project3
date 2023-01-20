@@ -60,6 +60,11 @@ To use Solo Traveler, visit https://solo.herokuapp.com/ in your preferred browse
 - [React-Dom](https://www.npmjs.com/package/react-dom)
 - [React-Router-Dom](https://www.npmjs.com/package/react-router-dom)
 - [React-Scripts](https://www.npmjs.com/package/react-scripts)
+- [React-dotenv](https://www.npmjs.com/package/react-dotenv)
+- [React-Chat-Engine](https://www.npmjs.com/package/react-chat-engine)
+- [Bootstrap](https://www.npmjs.com/package/bootstrap)
+- [SASS](https://www.npmjs.com/package/sass)
+- [tsParticles](https://www.npmjs.com/package/tsparticles)
 
 ## Screenshot
 
