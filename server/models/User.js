@@ -17,6 +17,7 @@ const userSchema = new Schema({
       type: String,
       required: true,
     },
+    trips: [{ type: Schema.Types.ObjectId, ref: 'trip' }]
   },
   {
     toJSON: {
