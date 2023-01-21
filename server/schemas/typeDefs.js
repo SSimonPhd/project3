@@ -12,13 +12,24 @@ const typeDefs = gql`
     user: User
   }
 
+  type Trip {
+    _id: ID!
+    location: String!
+    note: String!
+  }
+
   type Query {
     me: User
+    trips: [Trip]
+    trip(tripId: ID!): Trip
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
+    addTrip(location: String!, note: String!): Trip
+    removeTrip(tripId: ID!): Trip
+    updateTrip(location: String!, note: String!, tripId: ID!): Trip
   }
 `;
 

@@ -1,6 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+import { ADD_TRIP } from '../utils/mutations';
 
 function AddTrip() {
+  let navigate = useNavigate();
+
+  const [formState, setTripState] = useState({
+    location: '',
+    note: ''
+  });
+
+  const [createTrip, { error }] = useMutation(ADD_TRIP);
+
+  // When the user begins typing --> handle input change
+  // const handleInputChange = (event) => {
+  //   const { name, value } = event.target.value; //!
+  //   setTripData({...tripData, location, note}) //!
+  // }
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      await createTrip({
+        variables: { location: formState.location, note: formState.note }
+      });
+
+      const { name, value } = event.target;
+
+      setTripState({
+        ...formState,
+        [name]: value,
+      });
+
+      navigate(`/profile`)
+    } catch (err) {
+      console.error(err);
+    }
+
+
+  }
+
   return (
     <div className='container-sm'>
       {/* Title  */}
@@ -9,16 +50,16 @@ function AddTrip() {
       {/* Form to Add a Trip */}
       <div className='row'>
         <div className='col w-50 d-flex flex-column align-items-center justify-contents-center'>
-          <div class="mb-3 w-50">
-            <label for="location" class="form-label">Location</label>
-            <input type="text" class="form-control" id="location" placeholder="Maldives" />
+          <div className="mb-3 w-50">
+            <label for="location" className="form-label">Location</label>
+            <input name="location" type="text" className="form-control" id="location" />
           </div>
-          <div class="mb-3 w-50">
-            <label for="highlights" class="form-label">Notes</label>
-            <textarea class="form-control" id="highlights" rows="3" placeholder='Write your must see/do activities'></textarea>
+          <div className="mb-3 w-50">
+            <label for="highlights" className="form-label">Notes</label>
+            <textarea name="note" className="form-control" id="highlights" rows="3"></textarea>
           </div>
           {/* Add a Trip + Button */}
-          <button type="button" class="btn btn-primary p-2">Create trip +</button>
+          <button type="submit" onClick={handleFormSubmit} className="btn btn-primary p-2">Create trip +</button>
         </div>
       </div>
     </div>

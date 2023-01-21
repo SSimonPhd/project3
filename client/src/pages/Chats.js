@@ -2,15 +2,16 @@ import React from 'react';
 import { ChatEngine } from 'react-chat-engine';
 import Login from './Login';
 import ChatFeed from '../components/Chat Components/ChatFeed';
+import env from 'react-dotenv';
 
-const projectID = 'c324e0ea-5ec2-4823-a4d1-46eea70540a8';
+const projectID = env.REACT_APP_CE_PUBLIC_KEY;
 
 const Chats = () => {
 	if (!localStorage.getItem('username')) return <Login />;
 
 	return (
 		<ChatEngine
-			height='100vh'
+			height='80vh'
 			projectID={projectID}
 			userName={localStorage.getItem('username')}
 			userSecret={localStorage.getItem('password')}
