@@ -1,9 +1,20 @@
 import React from 'react';
+import { useQuery } from '@apollo/client';
+import { GET_TRIP } from '../utils/queries';
+import { GET_TRIPS } from '../utils/queries';
+
 //TODO: work on getting trip information from the database
 //TODO: create individual trip component
 //TODO: decide where/how to update & delete trip data
 
 function Profile() {
+
+  const { loading, data } = useQuery(GET_TRIP, GET_TRIPS, {
+    fetchPolicy: "no-cache"
+  });
+
+  const tripList = data?.matchups || [];
+    
 
   return (
     <div className='container-sm'>
