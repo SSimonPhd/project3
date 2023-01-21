@@ -1,7 +1,10 @@
 import React from 'react';
+import { FcReuse } from "react-icons/fc";
 // Import React Router Link component for internal hyperlinks
 import { Link } from 'react-router-dom';
+import { removeToken } from './Logout/Logout';
 import '../Header/styles.scss';
+
 
 const Header = () => {
   return (
@@ -24,6 +27,9 @@ const Header = () => {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/addtrip">Add Trip</Link>
+            </li>
+            <li className="nav-item">
+            <Link className="nav-link" onClick={removeToken} to="/login">Logout<FcReuse /></Link>
             </li>
           </ul>
         </div>

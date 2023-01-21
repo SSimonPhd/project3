@@ -15,7 +15,7 @@ import AddTrip from './pages/AddTrip';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Welcome from './pages/Welcome';
-// import Signup from "./pages/Signup";
+import Signup from "./pages/Signup";
 
 import './App.css';
 
