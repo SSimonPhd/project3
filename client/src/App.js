@@ -16,6 +16,7 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Welcome from './pages/Welcome';
 import Signup from './pages/Signup';
+
 import './App.css';
 
 const httpLink = createHttpLink({
