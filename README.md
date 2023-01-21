@@ -18,6 +18,7 @@ Solo Traveler web app provides solo travelers a place to connect and plan upcomi
 - [Screenshot](#screenshot) 
 - [Deployed Application](#deployed-application)
 - [GitHub Repo](#github-repo)
+- [Presentation](#presentation)
 - [Credits](#credits)
 - [License](#license)
 
@@ -70,7 +71,6 @@ To use Solo Traveler, visit https://solo.herokuapp.com/ in your preferred browse
 
 ![image](https://user-images.githubusercontent.com/60651145/213614601-d5ea8187-a0ae-4ed4-be6a-c5f504d18508.png)
 
-
 ## Deployed Application
 
 https://solo.herokuapp.com/
@@ -78,6 +78,10 @@ https://solo.herokuapp.com/
 ## GitHub Repo 
 
 https://github.com/SSimonPhd/project3
+
+## Presentation
+
+https://www.canva.com/design/DAFYEtYD1cI/IMIv3ScKT28Xc1LZvXiu9Q/view?utm_content=DAFYEtYD1cI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton#1
 
 ## Credits
 
