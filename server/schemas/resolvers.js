@@ -11,12 +11,24 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    trips: async () => {
-      return await Trip.find({})
-    },
 
-    trip: async(parent, { tripId }) => {
-      return Trip.findOne({ _id: tripId });
+
+    trips: async (parent, args, context) => {
+      if (context.user){
+        const user = await User.findById(context.user._id);
+
+        if (!user) {
+          throw new AuthenticationError('No user found');
+        }
+
+        const trips = Trip.find({_id: user.trips}) 
+
+        return trips;
+
+      }
+      else {
+        throw new AuthenticationError('No user found');
+      }
     },
   },
 
@@ -46,21 +58,21 @@ const resolvers = {
     },
 
     addTrip: async (parent, { note, location }, context) => {
-        if (context.user){
-          const user = await User.findById(context.user._id);
+      if (context.user){
+        const user = await User.findById(context.user._id);
 
-          if (!user) {
-            throw new AuthenticationError('No user found');
-          }
-          
-          const trip = await Trip.create({note: note, location: location, userId: user._id});
-          await User.findByIdAndUpdate({ _id: user._id }, { $addToSet: { trips: trip._id } }, { new: true })
-
-          return trip;
-        }
-        else {
+        if (!user) {
           throw new AuthenticationError('No user found');
         }
+        
+        const trip = await Trip.create({note: note, location: location, userId: user._id});
+        await User.findByIdAndUpdate({ _id: user._id }, { $addToSet: { trips: trip._id } }, { new: true })
+
+        return trip;
+      }
+      else {
+        throw new AuthenticationError('No user found');
+      }
     },
     
     removeTrip: async (parent, args, context) => {
