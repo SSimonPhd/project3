@@ -49,6 +49,7 @@ const Login = () => {
 			});
 
 			localStorage.setItem('username', username);
+			localStorage.setItem('password', password);
 
 			window.location.reload();
 			setError('');
