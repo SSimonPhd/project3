@@ -78,11 +78,11 @@ const resolvers = {
     removeTrip: async (parent, args, context) => {
       if (context.user){
         const user = await User.findById(context.user._id);
-
+      
         if (!user) {
           throw new AuthenticationError('No user found');
         }
-        
+      
         const trip = await 
           Trip.findOneAndDelete({ userId: user._id, _id: args.tripId })
             .then(async (trip) => {
@@ -94,11 +94,10 @@ const resolvers = {
 
               return trip;
             });
-
         return trip;
       } else {
-          throw new AuthenticationError('No user found');
-        }
+        throw new AuthenticationError('No user found');
+      }
     },
 
     updateTrip: async (parent, { location, note, tripId }, context) => {

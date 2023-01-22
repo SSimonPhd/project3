@@ -1,46 +1,63 @@
-import React from 'react';
-import Trip from '../components/Trip';
+import React, { useState } from 'react';
+import Trip from '../components/Trip'
 
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import { GET_TRIPS } from '../utils/queries';
 // import Login from './Login';
 // import Auth from '../utils/auth';
+import { REMOVE_TRIP } from '../utils/mutations'
 
 //TODO: work on getting trip information from the database
 //TODO: create individual trip component
 //TODO: decide where/how to update & delete trip data
 
-function Profile() {
-	// if (!Auth.loggedIn()) return <Login />;
+const Profile = () => {
+  // if (!Auth.loggedIn()) return <Login />;
+  
+  const [tripData, setTripData] = useState({trips: []})
 
-	const { loading, data } = useQuery(GET_TRIPS, { fetchPolicy: 'no-cache' });
-	const tripList = data?.trips || [];
+  useQuery(GET_TRIPS, { fetchPolicy: "no-cache", onCompleted: setTripData });
 
-	console.log(tripList);
+  const [removeTrip] = useMutation(REMOVE_TRIP);
+  
+  const handleDeleteTripEvent = async (e) => {
+    e.preventDefault();
 
-	const trips = tripList.map((tripData) => {
-		return (
-			<Trip
-				key={tripData._id}
-				location={tripData.location}
-				note={tripData.note}
-				id={tripData._id}
-			/>
-		);
-	});
+    if(window.confirm('Delete trip?')){
+      try {
+        // Execute mutation and pass in defined parameter data as variables
+        await removeTrip({
+          variables: { tripId: e.target.dataset.id },
+        });
 
-	return (
-		<div className='container-sm'>
-			{/* Title */}
-			<h2 className='text-center mt-5'>Your Upcoming Trips</h2>
-			<div className='row mt-5 h-75 d-flex flex-row justify-content-center'>
-				<div className='col-sm w-75 d-flex flex-row justify-content-around'>
-					{/* Here's where the trip data will be presented -- example mock up below */}
-					{loading ? <div>Loading...</div> : trips}
-				</div>
-			</div>
-		</div>
-	);
+        window.location.reload();
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  }
+
+  const trips = tripData.trips.map((trip) => {
+    return (
+      <Trip 
+        key={trip._id} location={trip.location} note={trip.note} id={trip._id} 
+        onDelete={handleDeleteTripEvent}
+      />
+    );
+  });
+
+  return (
+    <div className='container-sm'>
+      {/* Title */}
+      <h2 className='text-center mt-5'>Your Upcoming Trips</h2>
+      <div className='row mt-5 h-75 d-flex flex-row justify-content-center'>
+        <div className='col-sm w-75 d-flex flex-row justify-content-around'>
+          {/* Here's where the trip data will be presented -- example mock up below */}
+          { tripData.trips.lenght === 0 ? (<div>Loading...</div>) : trips }
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default Profile;
