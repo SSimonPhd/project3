@@ -3,14 +3,17 @@ import Trip from '../components/Trip'
 
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_TRIPS } from '../utils/queries';
+// import Login from './Login';
+// import Auth from '../utils/auth';
 import { REMOVE_TRIP } from '../utils/mutations'
-
 
 //TODO: work on getting trip information from the database
 //TODO: create individual trip component
 //TODO: decide where/how to update & delete trip data
 
 const Profile = () => {
+  // if (!Auth.loggedIn()) return <Login />;
+  
   const [tripData, setTripData] = useState({trips: []})
 
   useQuery(GET_TRIPS, { fetchPolicy: "no-cache", onCompleted: setTripData });
