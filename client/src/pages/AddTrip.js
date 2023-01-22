@@ -10,40 +10,30 @@ function AddTrip() {
 
 	let navigate = useNavigate();
 
-	const [formState, setTripState] = useState({
-		location: '',
-		note: '',
-	});
+  const [location, setLocation] = useState('');
+  const [note, setNote] = useState('');
+  const [createTrip, { error }] = useMutation(ADD_TRIP);
 
-	const [createTrip, { error }] = useMutation(ADD_TRIP);
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
 
-	// When the user begins typing --> handle input change
-	// const handleInputChange = (event) => {
-	//   const { name, value } = event.target.value; //!
-	//   setTripData({...tripData, location, note}) //!
-	// }
+    return name === 'location' ? setLocation(value) : setNote(value);
+  }
 
-	const handleFormSubmit = async (event) => {
-		event.preventDefault();
-
+  const handleFormSubmit =  async (e) => {
+    e.preventDefault();
+  
 		try {
 			await createTrip({
-				variables: { location: formState.location, note: formState.note },
-			});
-
-			const { name, value } = event.target;
-
-			setTripState({
-				...formState,
-				[name]: value,
+				variables: { location: location, note: note },
 			});
 
 			navigate(`/profile`);
 		} catch (err) {
 			console.error(err);
 		}
-	};
-
+  }
+	
 	return (
 		<div className='container-sm'>
 			{/* Title  */}
@@ -53,7 +43,7 @@ function AddTrip() {
 			<div className='row'>
 				<div className='col w-50 d-flex flex-column align-items-center justify-contents-center'>
 					<div className='mb-3 w-50'>
-						<label for='location' className='form-label'>
+						<label htmlFor='location' className='form-label'>
 							Location
 						</label>
 						<input
@@ -61,10 +51,11 @@ function AddTrip() {
 							type='text'
 							className='form-control'
 							id='location'
+              onChange={handleInputChange}
 						/>
 					</div>
 					<div className='mb-3 w-50'>
-						<label for='highlights' className='form-label'>
+						<label htmlFor='highlights' className='form-label'>
 							Notes
 						</label>
 						<textarea
@@ -72,6 +63,7 @@ function AddTrip() {
 							className='form-control'
 							id='highlights'
 							rows='3'
+              onChange={handleInputChange}
 						></textarea>
 					</div>
 					{/* Add a Trip + Button */}
