@@ -5,6 +5,7 @@ import Particle from '../tsParticles/tsParticle';
 import axios from 'axios';
 import { addPerson } from 'react-chat-engine';
 import env from 'react-dotenv';
+import './styles/signup.scss'
 
 const projectID = env.REACT_APP_CE_PUBLIC_KEY;
 console.log(projectID);

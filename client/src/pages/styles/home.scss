@@ -1,11 +1,12 @@
 .c-item {
-  height: 650px;
+  height: 100vh;
+  width: 100vw;
   object-fit: cover;
   filter: brightness(0.6);
 }
 
 .caption {
-  padding-bottom: 250px;
+  padding-bottom: 450px;
 
   & h1 {
     font-size: 4rem;

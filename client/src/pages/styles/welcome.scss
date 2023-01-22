@@ -1,33 +1,62 @@
-.world-background {
-  background-image: url('../../../public/images/swirl.png');
-  background-repeat: no-repeat;
+// Dark Theme
+// .welcome-background {
+//   background-image: url('../../../public/images/swirl.png');
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   background-position: center center;
+//   height: 100vh;
+//   width: 100vh;
+// }
+
+// .page-title {
+//   font-family: 'Montserrat', sans-serif;
+//   font-weight: 400;
+//   font-size: 70px;
+//   color: #3ebea2;
+// }
+
+// .green-btn {
+//   width: 180px;
+//   height: fit-content;
+//   background-color: transparent;
+//   font-family: 'Montserrat', sans-serif;
+//   font-weight: 300;
+//   font-size: 15px;
+//   color: #3ebea2;
+//   border: 1px solid #3ebea2;
+// }
+
+// .green-btn:hover {
+//   background-color: transparentize($color: #3ebea2, $amount: 0);
+//   color: white;
+// }
+
+// Background Image
+.welcome-background {
+  background-image: url('../../../public/images/colorscheme/dessert.jpeg');
+  background-repeat: repeat-y;
   background-size: cover;
   background-position: center center;
   height: 100vh;
   width: 100vh;
 }
 
-.page-title {
-  font-family: 'Montserrat', sans-serif;
+// Title on each page
+.welcome-title {
+  font-family: var(--title-font-family);
   font-weight: 400;
-  font-size: 70px;
+  font-size: 100px;
   color: #3ebea2;
 }
 
-.green-btn {
-  width: 180px;
+.welcome-btn {
+  padding: 10px;
+  width: 200px;
   height: fit-content;
-  background-color: transparent;
+  background-color: var(--light-blue);
   font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
-  font-size: 15px;
-  color: #3ebea2;
-  border: 1px solid #3ebea2;
-}
-
-.green-btn:hover {
-  background-color: transparentize($color: #3ebea2, $amount: 0);
+  font-weight: 800;
+  font-size: 20px;
   color: white;
+  border: 1px solid var(--light-blue);
 }
-
-// Dark Blue Background Color --> #040c29;

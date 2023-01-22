@@ -1,0 +1,49 @@
+// Background image
+.add-trip-background {
+  background-image: url('../../../public/images/colorscheme/pillars.jpeg');
+  background-repeat: repeat-y;
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+  width: 100vh;
+}
+
+// Title
+.add-trip-title {
+  font-family: var(--title-font-family);
+  font-weight: 800;
+  font-size: 80px;
+  color: white;
+  padding-top: 90px;
+}
+
+// Trip Form Row
+.add-trip-form {
+  width: 100vh;
+}
+
+// Each input label text and input area
+.trip-input {
+  margin-top: 20px;
+  width: 550px;
+  font-family: var(--title-font-family);
+  text-align: center;
+  padding: 20px;
+  color: white;
+  font-size: 25px;
+  font-weight: 600;
+  background-color: var(--faded-light-blue);
+  // border: 5px solid var(--dark-brown);
+}
+
+// "Create Trip +" Button
+#create-trip-btn {
+  width: fit-content;
+  height: fit-content;
+  background-color: var(--faded-light-blue);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  color: white;
+  // border: 1px solid var(--light-blue);
+}

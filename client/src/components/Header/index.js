@@ -3,12 +3,12 @@ import { FcReuse } from "react-icons/fc";
 // Import React Router Link component for internal hyperlinks
 import { Link } from 'react-router-dom';
 import { removeToken } from './Logout/Logout';
-import '../Header/styles.scss';
+import '../Header/header.scss';
 
 
 const Header = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg">
       <div className="container-fluid">
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
