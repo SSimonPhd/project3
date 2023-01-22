@@ -55,19 +55,9 @@ export const ADD_TRIP = gql`
 `;
 
 export const REMOVE_TRIP = gql`
-  mutation removeTrip(
-    $location: String!
-    $note: String!
-  ) {
-    removeTrip(
-      location: $location
-      note: $note
-    ) {
-      token 
-      trip{
-        location
-        note
-      }
+  mutation removeTrip($tripId: ID!) {
+    removeTrip(tripId: $tripId) {
+      _id
     }
   }
 `
