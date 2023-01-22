@@ -3,10 +3,12 @@ import { ChatEngine } from 'react-chat-engine';
 import Login from './Login';
 import ChatFeed from '../components/Chat Components/ChatFeed';
 import env from 'react-dotenv';
+// import Auth from '../utils/auth';
 
 const projectID = env.REACT_APP_CE_PUBLIC_KEY;
 
 const Chats = () => {
+	// if (!Auth.loggedIn()) return <Login />;
 	if (!localStorage.getItem('username')) return <Login />;
 
 	return (

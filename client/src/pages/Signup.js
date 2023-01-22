@@ -5,21 +5,32 @@ import Particle from '../tsParticles/tsParticle';
 import axios from 'axios';
 import { addPerson } from 'react-chat-engine';
 import env from 'react-dotenv';
+// import { useMutation } from '@apollo/client';
+// import { ADD_USER } from '../utils/mutations';
+// import Auth from '../utils/auth';
 
 const projectID = env.REACT_APP_CE_PUBLIC_KEY;
-console.log(projectID);
 
 const Signup = () => {
 	let navigate = useNavigate();
 
-	const [username, setUsername] = useState('');
-	const [password, setPassword] = useState('');
-	const [email, setEmail] = useState('');
 	const [firstName, setFirstName] = useState('');
 	const [lastName, setLastName] = useState('');
+	const [userFormData, setUserFormData] = useState({
+		username: '',
+		email: '',
+		password: '',
+	});
+
+	// const [addUser, { error }] = useMutation(ADD_USER);
 
 	const private_key = env.REACT_APP_CE_PRIVATE_KEY;
 	const chatID = env.REACT_APP_CE_CHAT_ID;
+
+	const handleInputChange = (e) => {
+		const { name, value } = e.target;
+		setUserFormData({ ...userFormData, [name]: value });
+	};
 
 	// Create a user when they sign up for site
 	const createUser = async (e) => {
@@ -35,24 +46,41 @@ const Signup = () => {
 			userSecret: env.REACT_APP_CE_ADMIN_SECRET,
 		};
 
+		// try {
+		// 	const { data } = addUser({
+		// 		variables: { ...userFormData },
+		// 	});
+		// 	console.log(data);
+
+		// 	Auth.login(data.addUser.token);
+		// 	localStorage.setItem('username', userFormData.username);
+
+		// } catch (err) {
+		// 	console.error(err);
+		// 	console.log('Failed to send user to DB');
+		// }
+
 		try {
 			await axios
 				.post(
 					'https://api.chatengine.io/users/',
 					{
-						username: username,
-						secret: password,
-						email: email,
+						username: userFormData.username,
+						secret: userFormData.password,
+						email: userFormData.email,
 						first_name: firstName,
 						last_name: lastName,
 					}, // Body object
 					{ headers: authObject } // Headers object
 				)
 				.then((r) => console.log(r));
+
+			console.log('Signed up, rerouting to welcome page.');
+			navigate('/welcome');
 		} catch (err) {
 			console.error(err);
 		}
-		addPerson(props, chatID, username);
+		addPerson(props, chatID, userFormData.username);
 	};
 
 	return (
@@ -103,10 +131,11 @@ const Signup = () => {
 											>
 												<Form.Label>Username</Form.Label>
 												<Form.Control
-													type='Username'
+													type='text'
 													placeholder='Username'
-													value={username}
-													onChange={(e) => setUsername(e.target.value)}
+													name='username'
+													onChange={handleInputChange}
+													value={userFormData.username}
 													required
 												/>
 											</Form.Group>
@@ -117,8 +146,9 @@ const Signup = () => {
 												<Form.Control
 													type='email'
 													placeholder='Enter email'
-													value={email}
-													onChange={(e) => setEmail(e.target.value)}
+													name='email'
+													onChange={handleInputChange}
+													value={userFormData.email}
 													required
 												/>
 											</Form.Group>
@@ -130,8 +160,9 @@ const Signup = () => {
 												<Form.Control
 													type='password'
 													placeholder='Password'
-													value={password}
-													onChange={(e) => setPassword(e.target.value)}
+													name='password'
+													onChange={handleInputChange}
+													value={userFormData.password}
 													required
 												/>
 											</Form.Group>

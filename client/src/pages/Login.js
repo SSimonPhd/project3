@@ -4,6 +4,9 @@ import { Col, Button, Row, Container, Card, Form } from 'react-bootstrap';
 import Particle from '../tsParticles/tsParticle';
 import { useNavigate } from 'react-router-dom';
 import env from 'react-dotenv';
+// import { useMutation } from '@apollo/client';
+// import { LOGIN_USER } from '../utils/mutations';
+// import Auth from '../utils/auth';
 
 // import Particles from "react-tsparticles";
 // import { loadFull } from "tsparticles";
@@ -16,8 +19,7 @@ const Login = () => {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 	const [error, setError] = useState('');
-	
-	
+	// const [login, { errors }] = useMutation(LOGIN_USER);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -28,19 +30,34 @@ const Login = () => {
 			'User-Secret': password,
 		};
 
+		// try {
+		// 	const { data } = await login({
+		// 		variables: {
+		// 			username,
+		// 			password,
+		// 		},
+		// 	});
+
+		// 	Auth.login(data.login.token);
+		// } catch (err) {
+		// 	console.error(err);
+		// }
+
 		try {
 			await axios.get('https://api.chatengine.io/chats', {
 				headers: authObject,
 			});
 
 			localStorage.setItem('username', username);
-			localStorage.setItem('password', password);
 
 			window.location.reload();
 			setError('');
 		} catch (err) {
 			setError('Oops, incorrect credentials.');
 		}
+
+		console.log('Successfully logged in. Routing to profile page');
+		navigate('/profile');
 	};
 
 	return (
@@ -88,13 +105,7 @@ const Login = () => {
 											<Form.Group
 												className='mb-3'
 												controlId='formBasicCheckbox'
-											>
-												<p className='small'>
-													<a className='text-primary' href='#!'>
-														Forgot password?
-													</a>
-												</p>
-											</Form.Group>
+											></Form.Group>
 											<div className='d-grid'>
 												<Button variant='primary' type='submit'>
 													Login
