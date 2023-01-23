@@ -1,15 +1,17 @@
 import React from 'react';
 import { ChatEngine } from 'react-chat-engine';
-import Login from './Login';
 import ChatFeed from '../components/Chat Components/ChatFeed';
 import env from 'react-dotenv';
-// import Auth from '../utils/auth';
+import Auth from '../utils/auth';
+import { useNavigate } from 'react-router-dom';
 
 const projectID = env.REACT_APP_CE_PUBLIC_KEY;
 
 const Chats = () => {
-	// if (!Auth.loggedIn()) return <Login />;
-	if (!localStorage.getItem('username')) return <Login />;
+	let navigate = useNavigate();
+
+	if (!Auth.loggedIn()) navigate('/login');
+	// if (!localStorage.getItem('username')) return <Login />;
 
 	return (
 		<ChatEngine
