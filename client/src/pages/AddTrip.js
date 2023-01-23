@@ -32,10 +32,10 @@ function AddTrip() {
 		}
 	};
 
-	return (
-		<div className='container-sm'>
-			{/* Title  */}
-			<h2 className='text-center mt-5'>Add a Trip</h2>
+  return (
+    <div className='add-trip-background container-fluid'>
+      {/* Title  */}
+      <h2 className='add-trip-title text-center'>Add a Trip</h2>
 
 			{/* Form to Add a Trip */}
 			<div className='row'>

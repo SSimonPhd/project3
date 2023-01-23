@@ -1,3 +1,11 @@
+:root {
+  --light-blue: #9fcde2;
+  --faded-light-blue: #809fcde2;
+  --light-brown: #b87c54;
+  --dark-brown: #3b0b05;
+  --title-font-family: 'Montserrat', sans-serif;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

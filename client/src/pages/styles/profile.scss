@@ -1,0 +1,18 @@
+// Background image
+.profile-background {
+  background-image: url('../../../public/images/colorscheme/canyon.jpeg');
+  background-repeat: repeat-y;
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+  width: 100vh;
+}
+
+// Title
+.profile-title {
+  font-family: var(--title-font-family);
+  font-weight: 600;
+  font-size: 80px;
+  color: white;
+  padding-top: 90px;
+}

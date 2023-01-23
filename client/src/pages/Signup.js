@@ -8,6 +8,7 @@ import env from 'react-dotenv';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+import './styles/signup.scss'
 
 const projectID = env.REACT_APP_CE_PUBLIC_KEY;
 
