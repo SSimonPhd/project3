@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import {
 	ApolloClient,
 	InMemoryCache,
@@ -16,6 +16,7 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Welcome from './pages/Welcome';
 import Signup from './pages/Signup';
+import Auth from './utils/auth'
 
 import './App.css';
 
@@ -25,7 +26,7 @@ const httpLink = createHttpLink({
 
 const authLink = setContext((_, { headers }) => {
 	const token = localStorage.getItem('id_token');
-//	const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJuYW1lIjoidGVzdCIsImVtYWlsIjoidGVzdEB0ZXN0LmNvbSIsIl9pZCI6IjYzYzg0ZDg3M2FjNGZlMGNhODQzZGFiOSJ9LCJpYXQiOjE2NzQzMzI1ODIsImV4cCI6MTY3NDUwNTM4Mn0.ZgnaCm-iNvfaxXrbKelMJ7UojW9j-m_00DepmwJUTFg'
+
 	return {
 		headers: {
 			...headers,
@@ -40,6 +41,8 @@ const client = new ApolloClient({
 });
 
 export default function App() {
+	const loggedIn = Auth.loggedIn();
+
 	return (
 		<ApolloProvider client={client}>
 			<Router>
@@ -51,7 +54,7 @@ export default function App() {
 						<Route path='/login' element={<Login />} />
 						<Route path='/profile' element={<Profile />} />
 						<Route path='/chats' element={<Chats />} />
-						<Route path='/addtrip' element={<AddTrip />} />
+						<Route path='/addtrip' element={loggedIn ? <AddTrip /> : <Navigate to='/login'/>} />
 						<Route path='/signup' element={<Signup />} />
 					</Routes>
 				</div>
