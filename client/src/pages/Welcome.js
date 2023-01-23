@@ -1,12 +1,12 @@
 import React from 'react';
 import Auth from '../utils/auth';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import './styles/welcome.scss';
 
 function Welcome() {
-	let navigate = useNavigate();
+	// let navigate = useNavigate();
 
-	if (!Auth.loggedIn()) navigate('/login');
+	// if (!Auth.loggedIn()) navigate('/login');
 
 	return (
 		<div>

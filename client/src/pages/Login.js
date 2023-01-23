@@ -33,8 +33,8 @@ const Login = () => {
 		try {
 			const { data } = await login({
 				variables: {
-					username,
-					password,
+					email: username,
+					password: password,
 				},
 			});
 
@@ -58,7 +58,7 @@ const Login = () => {
 		}
 
 		console.log('Successfully logged in. Routing to profile page');
-		navigate('/profile');
+		navigate('/welcome');
 	};
 
 	return (
