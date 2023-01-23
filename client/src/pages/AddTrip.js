@@ -4,6 +4,7 @@ import { useMutation } from '@apollo/client';
 import { ADD_TRIP } from '../utils/mutations';
 import Login from './Login';
 import Auth from '../utils/auth';
+import './styles/addtrip.scss'
 
 function AddTrip() {
 	let navigate = useNavigate();
@@ -38,8 +39,8 @@ function AddTrip() {
       <h2 className='add-trip-title text-center'>Add a Trip</h2>
 
 			{/* Form to Add a Trip */}
-			<div className='row'>
-				<div className='col w-50 d-flex flex-column align-items-center justify-contents-center'>
+			<div className='add-trip-form row d-flex justify-content-center'>
+				<div className='trip-input col w-50 d-flex flex-column align-items-center justify-contents-center'>
 					<div className='mb-3 w-50'>
 						<label htmlFor='location' className='form-label'>
 							Location
@@ -68,7 +69,7 @@ function AddTrip() {
 					<button
 						type='submit'
 						onClick={handleFormSubmit}
-						className='btn btn-primary p-2'
+						className='create-trip-btn btn p-2'
 					>
 						Create trip +
 					</button>
