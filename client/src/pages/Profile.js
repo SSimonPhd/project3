@@ -6,15 +6,10 @@ import { GET_TRIPS } from '../utils/queries';
 import Auth from '../utils/auth';
 import { REMOVE_TRIP } from '../utils/mutations';
 
-//TODO: work on getting trip information from the database
-//TODO: create individual trip component
-//TODO: decide where/how to update & delete trip data
 import './styles/profile.scss';
 
 const Profile = () => {
 	let navigate = useNavigate();
-
-	// if (!Auth.loggedIn()) navigate('/login');
 
 	const [tripData, setTripData] = useState({ trips: [] });
 
