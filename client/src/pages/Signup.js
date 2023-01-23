@@ -5,9 +5,9 @@ import Particle from '../tsParticles/tsParticle';
 import axios from 'axios';
 import { addPerson } from 'react-chat-engine';
 import env from 'react-dotenv';
-// import { useMutation } from '@apollo/client';
-// import { ADD_USER } from '../utils/mutations';
-// import Auth from '../utils/auth';
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from '../utils/mutations';
+import Auth from '../utils/auth';
 
 const projectID = env.REACT_APP_CE_PUBLIC_KEY;
 
@@ -22,7 +22,7 @@ const Signup = () => {
 		password: '',
 	});
 
-	// const [addUser, { error }] = useMutation(ADD_USER);
+	const [addUser] = useMutation(ADD_USER);
 
 	const private_key = env.REACT_APP_CE_PRIVATE_KEY;
 	const chatID = env.REACT_APP_CE_CHAT_ID;
@@ -46,20 +46,6 @@ const Signup = () => {
 			userSecret: env.REACT_APP_CE_ADMIN_SECRET,
 		};
 
-		// try {
-		// 	const { data } = addUser({
-		// 		variables: { ...userFormData },
-		// 	});
-		// 	console.log(data);
-
-		// 	Auth.login(data.addUser.token);
-		// 	localStorage.setItem('username', userFormData.username);
-
-		// } catch (err) {
-		// 	console.error(err);
-		// 	console.log('Failed to send user to DB');
-		// }
-
 		try {
 			await axios
 				.post(
@@ -75,12 +61,22 @@ const Signup = () => {
 				)
 				.then((r) => console.log(r));
 
-			console.log('Signed up, rerouting to welcome page.');
+			localStorage.setItem('username', userFormData.username);
+			localStorage.setItem('password', userFormData.password);
+
+			addPerson(props, chatID, userFormData.username);
+
+			const { data } = await addUser({
+				variables: { ...userFormData },
+			});
+
+			Auth.login(data.addUser.token);
+
 			navigate('/welcome');
 		} catch (err) {
 			console.error(err);
+			console.log('Failed to send user to DB');
 		}
-		addPerson(props, chatID, userFormData.username);
 	};
 
 	return (
@@ -168,13 +164,7 @@ const Signup = () => {
 											</Form.Group>
 
 											<div className='d-grid'>
-												<Button
-													variant='primary'
-													type='submit'
-													// onClick={() => {
-													// 	navigate('/profile');
-													// }}
-												>
+												<Button variant='primary' type='submit'>
 													Signup
 												</Button>
 											</div>

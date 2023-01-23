@@ -2,27 +2,27 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_TRIP } from '../utils/mutations';
-// import Login from './Login';
-// import Auth from '../utils/auth';
+import Login from './Login';
+import Auth from '../utils/auth';
 
 function AddTrip() {
-	// if (!Auth.loggedIn()) return <Login />;
-
 	let navigate = useNavigate();
 
-  const [location, setLocation] = useState('');
-  const [note, setNote] = useState('');
-  const [createTrip, { error }] = useMutation(ADD_TRIP);
+	if (!Auth.loggedIn()) navigate('/login');
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
+	const [location, setLocation] = useState('');
+	const [note, setNote] = useState('');
+	const [createTrip, { error }] = useMutation(ADD_TRIP);
 
-    return name === 'location' ? setLocation(value) : setNote(value);
-  }
+	const handleInputChange = (e) => {
+		const { name, value } = e.target;
 
-  const handleFormSubmit =  async (e) => {
-    e.preventDefault();
-  
+		return name === 'location' ? setLocation(value) : setNote(value);
+	};
+
+	const handleFormSubmit = async (e) => {
+		e.preventDefault();
+
 		try {
 			await createTrip({
 				variables: { location: location, note: note },
@@ -32,8 +32,8 @@ function AddTrip() {
 		} catch (err) {
 			console.error(err);
 		}
-  }
-	
+	};
+
 	return (
 		<div className='container-sm'>
 			{/* Title  */}
@@ -51,7 +51,7 @@ function AddTrip() {
 							type='text'
 							className='form-control'
 							id='location'
-              onChange={handleInputChange}
+							onChange={handleInputChange}
 						/>
 					</div>
 					<div className='mb-3 w-50'>
@@ -63,7 +63,7 @@ function AddTrip() {
 							className='form-control'
 							id='highlights'
 							rows='3'
-              onChange={handleInputChange}
+							onChange={handleInputChange}
 						></textarea>
 					</div>
 					{/* Add a Trip + Button */}
