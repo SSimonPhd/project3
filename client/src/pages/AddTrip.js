@@ -2,46 +2,47 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_TRIP } from '../utils/mutations';
-import './styles/addtrip.scss';
+// import Login from './Login';
+// import Auth from '../utils/auth';
 
 function AddTrip() {
-  let navigate = useNavigate();
+	// if (!Auth.loggedIn()) return <Login />;
 
-  const [formState, setTripState] = useState({
-    location: '',
-    note: ''
-  });
+	let navigate = useNavigate();
 
-  const [createTrip, { error }] = useMutation(ADD_TRIP);
+	const [formState, setTripState] = useState({
+		location: '',
+		note: '',
+	});
 
-  // When the user begins typing --> handle input change
-  // const handleInputChange = (event) => {
-  //   const { name, value } = event.target.value; //!
-  //   setTripData({...tripData, location, note}) //!
-  // }
+	const [createTrip, { error }] = useMutation(ADD_TRIP);
 
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
+	// When the user begins typing --> handle input change
+	// const handleInputChange = (event) => {
+	//   const { name, value } = event.target.value; //!
+	//   setTripData({...tripData, location, note}) //!
+	// }
 
-    try {
-      await createTrip({
-        variables: { location: formState.location, note: formState.note }
-      });
+	const handleFormSubmit = async (event) => {
+		event.preventDefault();
 
-      const { name, value } = event.target;
+		try {
+			await createTrip({
+				variables: { location: formState.location, note: formState.note },
+			});
 
-      setTripState({
-        ...formState,
-        [name]: value,
-      });
+			const { name, value } = event.target;
 
-      navigate(`/profile`)
-    } catch (err) {
-      console.error(err);
-    }
+			setTripState({
+				...formState,
+				[name]: value,
+			});
 
-
-  }
+			navigate(`/profile`);
+		} catch (err) {
+			console.error(err);
+		}
+	};
 
   return (
     <div className='add-trip-background container-fluid'>
@@ -68,5 +69,3 @@ function AddTrip() {
 }
 
 export default AddTrip;
-
-

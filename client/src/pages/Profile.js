@@ -1,18 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Trip from '../components/Trip'
 
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import { GET_TRIPS } from '../utils/queries';
 import './styles/profile.scss';
 
-function Profile() {
-  const { loading, data } = useQuery(GET_TRIPS, { fetchPolicy: "no-cache" });
-  const tripList = data?.trips || [];
+const Profile = () => {
+  // if (!Auth.loggedIn()) return <Login />;
   
-  console.log(tripList);
+  const [tripData, setTripData] = useState({trips: []})
 
-  const trips = tripList.map((tripData) => {
-    return <Trip key={tripData._id} location={tripData.location} note={tripData.note} id={tripData._id} />;
+  useQuery(GET_TRIPS, { fetchPolicy: "no-cache", onCompleted: setTripData });
+
+  const [removeTrip] = useMutation(REMOVE_TRIP);
+  
+  const handleDeleteTripEvent = async (e) => {
+    e.preventDefault();
+
+    if(window.confirm('Delete trip?')){
+      try {
+        // Execute mutation and pass in defined parameter data as variables
+        await removeTrip({
+          variables: { tripId: e.target.dataset.id },
+        });
+
+        window.location.reload();
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  }
+
+  const trips = tripData.trips.map((trip) => {
+    return (
+      <Trip 
+        key={trip._id} location={trip.location} note={trip.note} id={trip._id} 
+        onDelete={handleDeleteTripEvent}
+      />
+    );
   });
 
   return (
@@ -22,7 +47,7 @@ function Profile() {
       <div className='row mt-5 h-75 d-flex flex-row justify-content-center'>
         <div className='col-sm w-75 d-flex flex-row justify-content-around'>
           {/* Here's where the trip data will be presented -- example mock up below */}
-          { loading ? (<div>Loading...</div>) : trips }
+          { tripData.trips.lenght === 0 ? (<div>Loading...</div>) : trips }
         </div>
       </div>
     </div>
