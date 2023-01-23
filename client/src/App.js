@@ -52,8 +52,8 @@ export default function App() {
 						<Route path='/' element={<Home />} />
 						<Route path='/welcome' element={<Welcome />} />
 						<Route path='/login' element={<Login />} />
-						<Route path='/profile' element={<Profile />} />
-						<Route path='/chats' element={<Chats />} />
+						<Route path='/profile' element={loggedIn ? <Profile /> : <Navigate to='/login'/>} />
+						<Route path='/chats' element={loggedIn ? <Chats /> : <Navigate to='/login'/>} />
 						<Route path='/addtrip' element={loggedIn ? <AddTrip /> : <Navigate to='/login'/>} />
 						<Route path='/signup' element={<Signup />} />
 					</Routes>

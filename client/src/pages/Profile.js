@@ -13,7 +13,7 @@ import { REMOVE_TRIP } from '../utils/mutations';
 const Profile = () => {
 	let navigate = useNavigate();
 
-	if (!Auth.loggedIn()) navigate('/login');
+	// if (!Auth.loggedIn()) navigate('/login');
 
 	const [tripData, setTripData] = useState({ trips: [] });
 

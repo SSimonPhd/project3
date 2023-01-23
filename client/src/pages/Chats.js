@@ -10,7 +10,7 @@ const projectID = env.REACT_APP_CE_PUBLIC_KEY;
 const Chats = () => {
 	let navigate = useNavigate();
 
-	if (!Auth.loggedIn()) navigate('/login');
+	// if (!Auth.loggedIn()) navigate('/login');
 	// if (!localStorage.getItem('username')) return <Login />;
 
 	return (
