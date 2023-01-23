@@ -8,8 +8,6 @@ import Auth from '../utils/auth';
 function AddTrip() {
 	let navigate = useNavigate();
 
-	if (!Auth.loggedIn()) navigate('/login');
-
 	const [location, setLocation] = useState('');
 	const [note, setNote] = useState('');
 	const [createTrip, { error }] = useMutation(ADD_TRIP);
