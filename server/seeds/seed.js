@@ -6,7 +6,7 @@ const userData = require('./userData.json');
 const tripData = require('./tripData.json');
 
 db.once('open', async() => {
-  await User.deleteMany({});
+  await User.deleteMany();
 
   const users = await User.insertMany(userData);
 
@@ -15,7 +15,7 @@ db.once('open', async() => {
 })
 
 db.once('open', async() => {
-  await Trip.deleteMany({});
+  await Trip.deleteMany();
 
   const trips = await Trip.insertMany(tripData);
 
