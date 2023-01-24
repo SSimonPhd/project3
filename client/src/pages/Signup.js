@@ -3,12 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { Col, Button, Row, Container, Card, Form } from 'react-bootstrap';
 import Particle from '../tsParticles/tsParticle';
 import axios from 'axios';
-import { addPerson } from 'react-chat-engine';
+import { addPerson, deleteMessage } from 'react-chat-engine';
 import env from 'react-dotenv';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
-import './styles/signup.scss'
+import './styles/signup.scss';
 
 const projectID = env.REACT_APP_CE_PUBLIC_KEY;
 
@@ -52,7 +52,7 @@ const Signup = () => {
 				.post(
 					'https://api.chatengine.io/users/',
 					{
-						username: userFormData.username,
+						username: userFormData.email,
 						secret: userFormData.password,
 						email: userFormData.email,
 						first_name: firstName,
@@ -62,10 +62,11 @@ const Signup = () => {
 				)
 				.then((r) => console.log(r));
 
-			localStorage.setItem('username', userFormData.username);
+			localStorage.setItem('username', userFormData.email);
 			localStorage.setItem('password', userFormData.password);
 
-			addPerson(props, chatID, userFormData.username);
+			addPerson(props, chatID, userFormData.email);
+			deleteMessage(props, chatID, '583275');
 
 			const { data } = await addUser({
 				variables: { ...userFormData },
