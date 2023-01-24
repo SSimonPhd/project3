@@ -1,5 +1,6 @@
 import React from 'react';
 import './trip.scss'
+import { motion } from 'framer-motion';
 
 const Trip = (props) => {
   return (
@@ -10,7 +11,17 @@ const Trip = (props) => {
           <h5 className="card-title">{props.location}</h5>
           <p className="card-text">Notes: {props.note}</p>
           {/* <button type="button" className="btn btn-primary me-2">Update</button> */}
-          <button type="button" className="delete-btn" data-id={props.id} onClick={props.onDelete}>DELETE</button>
+          <motion.button 
+          type="button"
+          className="delete-btn"
+          data-id={props.id}
+          onClick={props.onDelete}
+          whileHover={{
+            scale: 1.05,
+            transition:{duration: 0.3}}}
+            >
+            DELETE
+            </motion.button>
         </div>
       </div>
     </div>

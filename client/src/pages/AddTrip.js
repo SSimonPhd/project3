@@ -4,7 +4,8 @@ import { useMutation } from '@apollo/client';
 import { ADD_TRIP } from '../utils/mutations';
 import Login from './Login';
 import Auth from '../utils/auth';
-import './styles/addtrip.scss'
+import './styles/addtrip.scss';
+import { motion } from 'framer-motion';
 
 function AddTrip() {
 	let navigate = useNavigate();
@@ -69,13 +70,17 @@ function AddTrip() {
 						></textarea>
 					</div>
 					{/* Add a Trip + Button */}
-					<button
+					<motion.button
 						type='submit'
 						onClick={handleFormSubmit}
 						className='create-trip-btn'
+						whileHover={{
+							scale: 1.1,
+							transition: { duration: 0.3 }
+						}}
 					>
 						CREATE TRIP +
-					</button>
+					</motion.button>
 				</div>
 			</div>
 		</div>
