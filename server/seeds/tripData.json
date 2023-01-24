@@ -1,0 +1,18 @@
+[
+	{
+		"location": "Rio",
+		"note": "Summer trip"
+	},
+	{
+		"location": "Swiss Alps",
+		"note": "Winter trip"
+	},
+	{
+		"location": "Maldives",
+		"note": "Spring trip"
+	},
+	{
+		"location": "Japan",
+		"note": "Fall trip"
+	}
+]
