@@ -1,0 +1,30 @@
+.trip-column {
+  height: fit-content;
+}
+
+.trip-card {
+  // !override bootstrap
+  background-color: var(--light-blue);
+  font-family: var(--title-font-family);
+  color: white;
+}
+
+.card-title {
+  font-size: 30px;
+}
+
+.card-text {
+  font-size: 20px;
+}
+
+.delete-btn {
+  width: fit-content;
+  height: fit-content;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: var(--light-brown);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  border: 1px solid var(--light-brown);
+}
