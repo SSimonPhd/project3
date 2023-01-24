@@ -1,9 +1,19 @@
 import MessageForm from './MessageForm';
 import MyMessage from './MyMessage';
 import TheirMessage from './TheirMessage';
+import { deleteMessage } from 'react-chat-engine';
+import env from 'react-dotenv';
+
+const projectID = env.REACT_APP_CE_PUBLIC_KEY;
 
 const ChatFeed = (props) => {
     const { chats, activeChat, userName, messages } = props;
+
+    const ceProps = {
+        publicKey: projectID,
+        userName: env.REACT_APP_CE_ADMIN_USERNAME,
+        userSecret: env.REACT_APP_CE_ADMIN_SECRET,
+    };
 
     const chat = chats && chats[activeChat];
 
@@ -25,6 +35,10 @@ const ChatFeed = (props) => {
 
         return keys.map((key, index) => {
             const message = messages[key];
+            if(message.sender === null) {
+                console.log(message);
+                deleteMessage(ceProps, chat.id, message.id);
+            }
             const lastMessageKey = index === 0 ? null : keys[index - 1];
             const isMyMessage = userName === message.sender.username;
 
