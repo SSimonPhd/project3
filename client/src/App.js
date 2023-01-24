@@ -19,6 +19,7 @@ import Signup from './pages/Signup';
 import Auth from './utils/auth'
 
 import './App.css';
+import UpdateTrip from './pages/UpdateTrip';
 
 const httpLink = createHttpLink({
 	uri: '/graphql',
@@ -55,6 +56,7 @@ export default function App() {
 						<Route path='/profile' element={loggedIn ? <Profile /> : <Navigate to='/login'/>} />
 						<Route path='/chats' element={loggedIn ? <Chats /> : <Navigate to='/login'/>} />
 						<Route path='/addtrip' element={loggedIn ? <AddTrip /> : <Navigate to='/login'/>} />
+						<Route path='/updatetrip' element={<UpdateTrip />} />
 						<Route path='/signup' element={<Signup />} />
 					</Routes>
 				</div>
