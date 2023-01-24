@@ -18,25 +18,41 @@ const projectID = env.REACT_APP_CE_PUBLIC_KEY;
 const Login = () => {
 	let navigate = useNavigate();
 
-	const [username, setUsername] = useState('');
-	const [password, setPassword] = useState('');
+	const [userFormData, setUserFormData] = useState({
+		email: '',
+		password: '',
+	});
 	const [error, setError] = useState('');
 	const [login] = useMutation(LOGIN_USER);
+
+	const handleInputChange = (e) => {
+		const { name, value } = e.target;
+		setUserFormData({ ...userFormData, [name]: value });
+	};
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
 		const authObject = {
 			'Project-ID': projectID,
-			'User-Name': username,
-			'User-Secret': password,
+			'User-Name': userFormData.email,
+			'User-Secret': userFormData.password,
 		};
 
 		try {
+			await axios.get('https://api.chatengine.io/chats', {
+				headers: authObject,
+			});
+
+			localStorage.setItem('username', userFormData.email);
+			localStorage.setItem('password', userFormData.password);
+
+			setError('');
+
 			const { data } = await login({
 				variables: {
-					email: username,
-					password: password,
+					email: userFormData.email,
+					password: userFormData.password,
 				},
 			});
 
@@ -45,21 +61,6 @@ const Login = () => {
 			console.error(err);
 		}
 
-		try {
-			await axios.get('https://api.chatengine.io/chats', {
-				headers: authObject,
-			});
-
-			localStorage.setItem('username', username);
-			localStorage.setItem('password', password);
-
-			window.location.reload();
-			setError('');
-		} catch (err) {
-			setError('Oops, incorrect credentials.');
-		}
-
-		console.log('Successfully logged in. Routing to profile page');
 		navigate('/welcome');
 	};
 
@@ -85,8 +86,9 @@ const Login = () => {
 												<Form.Control
 													type='email'
 													placeholder='Enter email'
-													value={username}
-													onChange={(e) => setUsername(e.target.value)}
+													name='email'
+													onChange={handleInputChange}
+													value={userFormData.email}
 													required
 												/>
 											</Form.Group>
@@ -99,8 +101,9 @@ const Login = () => {
 												<Form.Control
 													type='password'
 													placeholder='Password'
-													value={password}
-													onChange={(e) => setPassword(e.target.value)}
+													name='password'
+													onChange={handleInputChange}
+													value={userFormData.password}
 													required
 												/>
 											</Form.Group>
