@@ -4,6 +4,7 @@ import { useMutation } from '@apollo/client';
 import { ADD_TRIP } from '../utils/mutations';
 import Login from './Login';
 import Auth from '../utils/auth';
+
 import './styles/addtrip.scss';
 import { motion } from 'framer-motion';
 
@@ -46,6 +47,7 @@ function AddTrip() {
 			<div className='add-trip-form row d-flex justify-content-center align-items-center'>
 				<div className='trip-input col d-flex flex-column align-items-center justify-contents-center'>
 					<div className='mb-3 w-75'>
+
 						<label htmlFor='location' className='form-label'>
 							Location
 						</label>

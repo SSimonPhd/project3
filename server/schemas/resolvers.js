@@ -30,6 +30,22 @@ const resolvers = {
         throw new AuthenticationError('No user found');
       }
     },
+
+    trip: async (panent, args, context) => {
+      if (context.user){
+        const user = await User.findById(context.user._id);
+
+        if (!user) {
+          throw new AuthenticationError('No user found');
+        }
+
+        return Trip.findOne({ userId: user._id, _id: args.tripId });
+
+      }
+      else {
+        throw new AuthenticationError('No user found');
+      }
+    }
   },
 
   Mutation: {

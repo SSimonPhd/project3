@@ -34,14 +34,8 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_TRIP = gql`
-  mutation addTrip(
-    $location: String!
-    $note: String!
-  ) {
-    addTrip(
-      location: $location
-      note: $note
-    ) {
+  mutation addTrip($location: String!, $note: String!) {
+    addTrip(location: $location, note: $note) {
         location
         note
     }
@@ -54,22 +48,14 @@ export const REMOVE_TRIP = gql`
       _id
     }
   }
-`
+`;
 
 export const UPDATE_TRIP = gql`
-    mutation updateTrip(
-    $location: String!
-    $note: String!
-  ) {
-    updateTrip(
-      location: $location
-      note: $note
-    ) {
-      token 
-      trip{
-        location
+    mutation updateTrip($tripId: ID!, $location: String!, $note: String!) {
+      updateTrip(tripId: $tripId, location: $location, note: $note) {
+        _id, 
+        location,
         note
       }
     }
-  }
-`
+    `;

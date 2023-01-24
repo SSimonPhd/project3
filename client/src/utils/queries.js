@@ -21,12 +21,11 @@ export const GET_TRIPS = gql`
 `;
 
 export const GET_TRIP = gql`
-  {
-    trip {
-      _id
-      location
-      note
-    }
+query Query($tripId: ID!) {
+  trip(tripId: $tripId) {
+    _id
+    location
+    note
   }
+}
 `;
-
