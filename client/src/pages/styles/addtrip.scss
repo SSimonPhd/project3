@@ -14,19 +14,21 @@
   font-weight: 800;
   font-size: 80px;
   color: white;
+  text-shadow: 2px 2px var(--red-brown);
 }
 
 // Trip Form Row
 .add-trip-form {
-  width: 100vh;
+  width: 65%;
 }
 
-// Each input label text and input area
+// the col-sm wrapping input divs
 .trip-input {
+  margin: 10px 10px 0px 10px;
   width: 300px;
   font-family: var(--title-font-family);
   text-align: center;
-  padding: 20px;
+  padding: 40px;
   color: white;
   font-size: 25px;
   font-weight: 600;
@@ -46,4 +48,11 @@
   font-size: 20px;
   font-weight: 600;
   border: 1px solid var(--light-brown);
+}
+
+.create-trip-btn:hover {
+  outline-color: transparent;
+  outline-style:solid;
+  box-shadow: 0 0 0 3px var(--red-brown);
+  transition: 0.1s;
 }

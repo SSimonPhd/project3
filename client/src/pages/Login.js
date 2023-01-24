@@ -65,12 +65,11 @@ const Login = () => {
 	};
 
 	return (
-		<div>
+		<div className='login-background container-fluid'>
 			{/* <Particle /> */}
-			<Container className='login-background'>
+			<Container >
 				<Row className='vh-100 d-flex justify-content-center align-items-center'>
 					<Col md={8} lg={6} xs={12}>
-						<div className='border border-3 border-primary'></div>
 						<Card className='shadow'>
 							<Card.Body>
 								<div className='mb-3 mt-md-4'>
@@ -112,14 +111,14 @@ const Login = () => {
 												className='mb-3'
 												controlId='formBasicCheckbox'
 											></Form.Group>
-											<div className='d-grid'>
+											<div className='d-grid d-flex justify-content-center align-items-center'>
 												<button type='submit' className='sign-up-btn'>
 													Login
 												</button>
 											</div>
 											<h2 className='error'>{error}</h2>
 										</Form>
-										<div className='mt-3'>
+										<div className='mt-3 '>
 											<p className='mb-0  text-center'>
 												Don't have an account?{' '}
 												<button

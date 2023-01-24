@@ -3,10 +3,10 @@
 }
 
 .trip-card {
-  // !override bootstrap
-  background-color: var(--light-blue);
+  background-color: #77BDE0;
   font-family: var(--title-font-family);
-  color: white;
+  font-weight: 400;
+  color: #572421;
 }
 
 .card-title {
@@ -27,4 +27,11 @@
   font-size: 15px;
   font-weight: 600;
   border: 1px solid var(--light-brown);
+}
+
+.delete-btn:hover {
+  outline-color: transparent;
+    outline-style:solid;
+    box-shadow: 0 0 0 3px var(--red-brown);
+    transition: 0.1s;
 }

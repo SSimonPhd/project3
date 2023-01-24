@@ -82,12 +82,11 @@ const Signup = () => {
 	};
 
 	return (
-		<div>
+		<div className='container-fluid sign-up-background'>
 			{/* <Particle /> */}
-			<Container className='sign-up-background'>
+			<Container >
 				<Row className='vh-100 d-flex justify-content-center align-items-center'>
 					<Col md={8} lg={6} xs={12}>
-						<div className='border border-3 border-primary'></div>
 						<Card className='shadow'>
 							<Card.Body>
 								<div className='mb-3 mt-md-4'>
@@ -170,7 +169,7 @@ const Signup = () => {
 												/>
 											</Form.Group>
 
-											<div className='d-grid'>
+											<div className='d-grid d-flex justify-content-center align-items-center'>
 												<button className='sign-up-btn' type='submit'>
 													Signup
 												</button>
