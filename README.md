@@ -7,7 +7,7 @@ Solo Traveler web app provides solo travelers a place to connect and plan upcomi
 
 - Solo Traveler helps solo travelers create a community.
 - We built this project to provide a space for solo travelers to connect, share recommendations, and inspire more exploration.
-- This project solves the problem of loneliness on solo trips by enabling travelers to connect.
+- This project solves the problem of isolation on solo trips by enabling travelers to connect.
 - We learned about using the MERN stack, GraphQL, and React.
 
 ## Table of Contents
@@ -69,7 +69,7 @@ To use Solo Traveler, visit https://solo.herokuapp.com/ in your preferred browse
 
 ## Screenshot
 
-![image](https://user-images.githubusercontent.com/60651145/213614601-d5ea8187-a0ae-4ed4-be6a-c5f504d18508.png)
+![image](https://user-images.githubusercontent.com/60651145/214378891-fd956401-d2ea-4d69-bda1-126fda38244d.png)
 
 ## Deployed Application
 
