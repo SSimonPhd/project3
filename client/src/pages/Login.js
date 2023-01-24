@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Col, Button, Row, Container, Card, Form } from 'react-bootstrap';
-import Particle from '../tsParticles/tsParticle';
+//import Particle from '../tsParticles/tsParticle';
 import { useNavigate } from 'react-router-dom';
 import env from 'react-dotenv';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+import './styles/login.scss';
+import './styles/signup.scss'
 
 // import Particles from "react-tsparticles";
 // import { loadFull } from "tsparticles";
@@ -64,18 +66,18 @@ const Login = () => {
 
 	return (
 		<div>
-			<Particle />
-			<Container>
+			{/* <Particle /> */}
+			<Container className='login-background'>
 				<Row className='vh-100 d-flex justify-content-center align-items-center'>
 					<Col md={8} lg={6} xs={12}>
 						<div className='border border-3 border-primary'></div>
 						<Card className='shadow'>
 							<Card.Body>
 								<div className='mb-3 mt-md-4'>
-									<h2 className='fw-bold mb-2 text-uppercase '>
-										©The Essentials{' '}
+									<h2 className='login-title fw-bold mb-2 text-uppercase text-center'>
+										Welcome Back{' '}
 									</h2>
-									<p className=' mb-5'>Please enter your login and password!</p>
+									<p className='mb-5 text-center'>Adventure and friendship await you!</p>
 									<div className='mb-3'>
 										<Form onSubmit={handleSubmit}>
 											<Form.Group className='mb-3' controlId='formBasicEmail'>
@@ -111,9 +113,9 @@ const Login = () => {
 												controlId='formBasicCheckbox'
 											></Form.Group>
 											<div className='d-grid'>
-												<Button variant='primary' type='submit'>
+												<button type='submit' className='sign-up-btn'>
 													Login
-												</Button>
+												</button>
 											</div>
 											<h2 className='error'>{error}</h2>
 										</Form>
@@ -122,7 +124,7 @@ const Login = () => {
 												Don't have an account?{' '}
 												<button
 													type='button'
-													className='text-primary fw-bold'
+													className='sign-in-btn'
 													onClick={() => {
 														navigate('/signup');
 													}}

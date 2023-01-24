@@ -1,9 +1,8 @@
 import React from 'react';
-import { FcReuse } from 'react-icons/fc';
 // Import React Router Link component for internal hyperlinks
 import { Link } from 'react-router-dom';
 import { removeToken } from './Logout/Logout';
-import '../Header/header.scss';
+import './header.scss';
 // import Auth from '../../utils/auth';
 
 const Header = () => {
@@ -14,7 +13,7 @@ const Header = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <Link className="navbar-brand" to="/">Solo Traveler</Link> 
+          <Link className="navbar-brand" to="/welcome">Solo Traveler</Link> 
           <ul className="navbar-nav">
             {/* <li className="nav-item">
 import '../Header/styles.scss';
@@ -69,7 +68,6 @@ const Header = () => {
 								// hidden={show}
 							>
 								Logout
-								<FcReuse />
 							</Link>
 						</li>
 					</ul>
