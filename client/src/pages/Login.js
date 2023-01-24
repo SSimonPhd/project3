@@ -8,7 +8,8 @@ import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 import './styles/login.scss';
-import './styles/signup.scss'
+import './styles/signup.scss';
+import { motion } from 'framer-motion';
 
 // import Particles from "react-tsparticles";
 // import { loadFull } from "tsparticles";
@@ -112,24 +113,32 @@ const Login = () => {
 												controlId='formBasicCheckbox'
 											></Form.Group>
 											<div className='d-grid d-flex justify-content-center align-items-center'>
-												<button type='submit' className='sign-up-btn'>
+												<motion.button type='submit' className='sign-up-btn'
+													whileHover={{
+														scale: 1.05,
+														transition: { duration: 0.3 }
+													}}>
 													Login
-												</button>
+												</motion.button>
 											</div>
 											<h2 className='error'>{error}</h2>
 										</Form>
 										<div className='mt-3 '>
 											<p className='mb-0  text-center'>
 												Don't have an account?{' '}
-												<button
+												<motion.button
 													type='button'
 													className='sign-in-btn'
 													onClick={() => {
 														navigate('/signup');
 													}}
+													whileHover={{
+														scale: 1.05,
+														transition: { duration: 0.3 }
+													}}
 												>
 													Sign Up
-												</button>
+												</motion.button>
 											</p>
 										</div>
 									</div>

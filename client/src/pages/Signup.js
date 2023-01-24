@@ -9,6 +9,7 @@ import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 import './styles/signup.scss';
+import { motion } from 'framer-motion';
 
 const projectID = env.REACT_APP_CE_PUBLIC_KEY;
 
@@ -170,23 +171,28 @@ const Signup = () => {
 											</Form.Group>
 
 											<div className='d-grid d-flex justify-content-center align-items-center'>
-												<button className='sign-up-btn' type='submit'>
+												<motion.button className='sign-up-btn' type='submit'
+												whileHover={{
+													scale: 1.05,
+													transition:{duration: 0.3}}}>
 													Signup
-												</button>
+												</motion.button>
 											</div>
 										</Form>
 										<div className='mt-3'>
 											<p className='mb-0  text-center'>
 												Already registered{' '}
-												<button
+												<motion.button
 													type='button'
 													className='sign-in-btn'
 													onClick={() => {
 														navigate('/login');
 													}}
-												>
-													Sign In
-												</button>
+													whileHover={{
+														scale: 1.05,
+														transition:{duration: 0.3}}}>
+													Login
+												</motion.button>
 											</p>
 										</div>
 									</div>
