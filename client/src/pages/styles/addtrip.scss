@@ -14,7 +14,6 @@
   font-weight: 800;
   font-size: 80px;
   color: white;
-  padding-top: 90px;
 }
 
 // Trip Form Row
@@ -24,8 +23,7 @@
 
 // Each input label text and input area
 .trip-input {
-  margin-top: 20px;
-  width: 550px;
+  width: 300px;
   font-family: var(--title-font-family);
   text-align: center;
   padding: 20px;
@@ -37,13 +35,15 @@
 }
 
 // "Create Trip +" Button
-#create-trip-btn {
+.create-trip-btn {
+  font-family: var(--title-font-family);
   width: fit-content;
   height: fit-content;
-  background-color: var(--light-blue);
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 800;
-  font-size: 20px;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: var(--light-brown);
   color: white;
-  // border: 1px solid var(--light-blue);
+  font-size: 20px;
+  font-weight: 600;
+  border: 1px solid var(--light-brown);
 }

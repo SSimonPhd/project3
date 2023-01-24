@@ -51,10 +51,10 @@ const Profile = () => {
       {/* Title */}
       <h2 className='profile-title text-center'>Your Trips</h2>
       <div className='row mt-5 h-75 d-flex flex-row justify-content-center'>
-        <div className='col-sm w-75 d-flex flex-row justify-content-around'>
+        {/* <div className='col-sm w-75 d-flex flex-row justify-content-around flex-wrap'> */}
           {/* Here's where the trip data will be presented -- example mock up below */}
-          { tripData.trips.lenght === 0 ? (<div>Loading...</div>) : trips }
-        </div>
+          { tripData.trips.length === 0 ? (<div>Loading...</div>) : trips }
+        {/* </div> */}
       </div>
     </div>
   )

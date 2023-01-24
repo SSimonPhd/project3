@@ -1,0 +1,47 @@
+.sign-up-background {
+  background-image: url('../../../public/images/colorscheme/redbuilding.jpeg');
+  background-repeat: repeat-y;
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+  width: 100vh;
+}
+
+.shadow {
+  background-color: transparent;
+}
+
+.card-body {
+  color: white;
+  background-color: var(--light-blue);
+}
+
+// .form-bubble {
+//   background-color: var(--light-brown);
+// }
+
+// Sign up & log in button on /signup and /login
+.sign-up-btn {
+  // width: fit-content;
+  // height: fit-content;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: var(--dark-brown);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  // border: 1px solid var(--light-brown);
+}
+
+// Same styling on the login page for "sign up"
+.sign-in-btn {
+  width: fit-content;
+  height: fit-content;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: var(--light-brown);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  border: 1px solid var(--light-brown);
+}

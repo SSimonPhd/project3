@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Col, Button, Row, Container, Card, Form } from 'react-bootstrap';
-import Particle from '../tsParticles/tsParticle';
+import { Col, Row, Container, Card, Form } from 'react-bootstrap';
+//import Particle from '../tsParticles/tsParticle';
 import axios from 'axios';
 import { addPerson } from 'react-chat-engine';
 import env from 'react-dotenv';
@@ -82,18 +82,18 @@ const Signup = () => {
 
 	return (
 		<div>
-			<Particle />
-			<Container>
+			{/* <Particle /> */}
+			<Container className='sign-up-background'>
 				<Row className='vh-100 d-flex justify-content-center align-items-center'>
 					<Col md={8} lg={6} xs={12}>
 						<div className='border border-3 border-primary'></div>
 						<Card className='shadow'>
 							<Card.Body>
 								<div className='mb-3 mt-md-4'>
-									<h2 className='fw-bold mb-2 text-uppercase '>
-										©The Essentials{' '}
+									<h2 className='fw-bold mb-2 text-uppercase text-center'>
+										Welcome Solo Travelers{' '}
 									</h2>
-									<p className=' mb-5'>Please enter your Sign Up info!</p>
+									<p className='text-center mb-5'>Please enter your Sign Up info!</p>
 									<div className='mb-3'>
 										<Form onSubmit={createUser}>
 											<Form.Group
@@ -102,6 +102,7 @@ const Signup = () => {
 											>
 												<Form.Label>First name</Form.Label>
 												<Form.Control
+													className="form-bubble"
 													type='First name'
 													placeholder='First name'
 													value={firstName}
@@ -115,6 +116,7 @@ const Signup = () => {
 											>
 												<Form.Label>Last name</Form.Label>
 												<Form.Control
+													className="form-bubble"
 													type='Last name'
 													placeholder='Last name'
 													value={lastName}
@@ -128,6 +130,7 @@ const Signup = () => {
 											>
 												<Form.Label>Username</Form.Label>
 												<Form.Control
+													className="form-bubble"
 													type='text'
 													placeholder='Username'
 													name='username'
@@ -141,6 +144,7 @@ const Signup = () => {
 													Email address
 												</Form.Label>
 												<Form.Control
+													className="form-bubble"
 													type='email'
 													placeholder='Enter email'
 													name='email'
@@ -155,6 +159,7 @@ const Signup = () => {
 											>
 												<Form.Label>Password</Form.Label>
 												<Form.Control
+													className="form-bubble"
 													type='password'
 													placeholder='Password'
 													name='password'
@@ -165,9 +170,9 @@ const Signup = () => {
 											</Form.Group>
 
 											<div className='d-grid'>
-												<Button variant='primary' type='submit'>
+												<button className='sign-up-btn' type='submit'>
 													Signup
-												</Button>
+												</button>
 											</div>
 										</Form>
 										<div className='mt-3'>
@@ -175,7 +180,7 @@ const Signup = () => {
 												Already registered{' '}
 												<button
 													type='button'
-													className='text-primary fw-bold'
+													className='sign-in-btn'
 													onClick={() => {
 														navigate('/login');
 													}}
