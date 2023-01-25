@@ -10,19 +10,26 @@ const Trip = (props) => {
         <div className="card-body text-center">
           <h5 className="card-title">{props.location}</h5>
           <p className="card-text">Notes: {props.note}</p>
-         
-          <button type="button" className="btn btn-primary me-2"data-id={props.id} onClick={props.onUpdate}>Update</button>
-          <motion.button 
-          type="button"
-          className="delete-btn"
-          data-id={props.id}
-          onClick={props.onDelete}
-          whileHover={{
-            scale: 1.05,
-            transition:{duration: 0.3}}}
-            >
-            DELETE
-            </motion.button>
+
+          <motion.button type="button" className="brown-btn me-2" data-id={props.id} onClick={props.onUpdate}
+            whileHover={{
+              scale: 1.05,
+              transition: { duration: 0.3 }
+            }}>
+            Update
+          </motion.button>
+          <motion.button
+            type="button"
+            className="brown-btn"
+            data-id={props.id}
+            onClick={props.onDelete}
+            whileHover={{
+              scale: 1.05,
+              transition: { duration: 0.3 }
+            }}
+          >
+            Delete
+          </motion.button>
         </div>
 
       </div>
