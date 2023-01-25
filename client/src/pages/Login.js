@@ -58,7 +58,7 @@ const Login = () => {
 			console.error(err);
 		}
 
-		navigate('/Welcome');
+		navigate(`/welcome`);
 	};
 
 	return (

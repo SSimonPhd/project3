@@ -74,7 +74,8 @@ const Signup = () => {
 
 			Auth.login(data.addUser.token);
 
-			navigate('/Welcome');
+			navigate(`/welcome`);
+
 		} catch (err) {
 			console.error(err);
 			console.log('Failed to send user to DB');
