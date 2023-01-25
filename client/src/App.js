@@ -51,12 +51,11 @@ export default function App() {
 				<div className='container-flex content'>
 					<Routes>
 						<Route path='/' element={<Home />} />
-						<Route path='/welcome' element={loggedIn ? <Welcome /> : <Navigate to='/login'/>}/>
+						<Route path='/welcome' element={<Welcome />} />
 						<Route path='/login' element={<Login />} />
-						<Route path='/profile' element={loggedIn ? <Profile /> : <Navigate to='/login'/>} />
-						<Route path='/chats' element={loggedIn ? <Chats /> : <Navigate to='/login'/>} />
-						<Route path='/addtrip' element={loggedIn ? <AddTrip /> : <Navigate to='/login'/>} />
-						<Route path='/updatetrip' element={<UpdateTrip />} />
+						<Route path='/profile' element={ <Profile /> } />
+						<Route path='/chats' element={ <Chats /> } />
+						<Route path='/addtrip' element={ <AddTrip />} />
 						<Route path='/signup' element={<Signup />} />
 					</Routes>
 				</div>
