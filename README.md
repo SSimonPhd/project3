@@ -1,6 +1,8 @@
 # Solo Traveler web app built with MERN Stack (MongoDB, Express, React, Node) & GraphQL
 [![License: MIT](https://img.shields.io/github/license/SSimonPhd/project3?label=license&style=plastic)](https://opensource.org/licenses/MIT)
 
+![image](https://user-images.githubusercontent.com/60651145/214378891-fd956401-d2ea-4d69-bda1-126fda38244d.png)
+
 ## Description
 
 Solo Traveler web app provides solo travelers a place to connect and plan upcoming trips. Solo Traveler allows users to create a travel profile, save trips, and connect with other solo travelers in chat rooms.
@@ -12,7 +14,6 @@ Solo Traveler web app provides solo travelers a place to connect and plan upcomi
 
 ## Table of Contents
 
-- [Screenshot](#screenshot) 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Technologies Utilized](#technologies-utilized)
@@ -21,10 +22,6 @@ Solo Traveler web app provides solo travelers a place to connect and plan upcomi
 - [Presentation](#presentation)
 - [Credits](#credits)
 - [License](#license)
-
-## Screenshot
-
-![image](https://user-images.githubusercontent.com/60651145/214378891-fd956401-d2ea-4d69-bda1-126fda38244d.png)
 
 ## Installation
 
