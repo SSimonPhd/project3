@@ -19,6 +19,7 @@ import Signup from './pages/Signup';
 import Auth from './utils/auth'
 
 import './App.css';
+import UpdateTrip from './pages/UpdateTrip';
 
 const httpLink = createHttpLink({
 	uri: '/graphql',

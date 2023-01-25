@@ -10,7 +10,8 @@ const Trip = (props) => {
         <div className="card-body text-center">
           <h5 className="card-title">{props.location}</h5>
           <p className="card-text">Notes: {props.note}</p>
-          {/* <button type="button" className="btn btn-primary me-2">Update</button> */}
+         
+          <button type="button" className="btn btn-primary me-2"data-id={props.id} onClick={props.onUpdate}>Update</button>
           <motion.button 
           type="button"
           className="delete-btn"
@@ -23,6 +24,7 @@ const Trip = (props) => {
             DELETE
             </motion.button>
         </div>
+
       </div>
     </div>
   )

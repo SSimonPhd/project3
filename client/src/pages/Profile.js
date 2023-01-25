@@ -3,18 +3,30 @@ import Trip from '../components/Trip';
 import { useNavigate } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_TRIPS } from '../utils/queries';
-import Auth from '../utils/auth';
 import { REMOVE_TRIP } from '../utils/mutations';
 
 import './styles/profile.scss';
 
 const Profile = () => {
-	let navigate = useNavigate();
+	const navigate = useNavigate();
 
 	const [tripData, setTripData] = useState({ trips: [] });
 
 	useQuery(GET_TRIPS, { fetchPolicy: 'no-cache', onCompleted: setTripData });
 
+//  Update trip
+
+	const handleUpdateTripEvent = async (e) => {
+		e.preventDefault();
+		// console.log({tripId: e.target.dataset.id})
+
+		// const navigate = useNavigate();
+		navigate('/updatetrip', { state: { tripId: e.target.dataset.id } });
+	}
+
+ 
+
+//Remove trip
 	const [removeTrip] = useMutation(REMOVE_TRIP);
 
 	const handleDeleteTripEvent = async (e) => {
@@ -27,7 +39,7 @@ const Profile = () => {
 					variables: { tripId: e.target.dataset.id },
 				});
 
-				window.location.reload();
+				navigate(0)
 			} catch (err) {
 				console.error(err);
 			}
@@ -42,6 +54,7 @@ const Profile = () => {
 				note={trip.note}
 				id={trip._id}
 				onDelete={handleDeleteTripEvent}
+				onUpdate={handleUpdateTripEvent}
 			/>
 		);
 	});
@@ -56,6 +69,9 @@ const Profile = () => {
           { tripData.trips.length === 0 ? (<div>Loading...</div>) : trips }
         {/* </div> */}
       </div>
+			{/* update trip */}
+			
+
     </div>
   )
 }
