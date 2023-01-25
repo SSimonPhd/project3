@@ -23,7 +23,7 @@ function AddTrip() {
 
 	const handleFormSubmit = async (e) => {
 		e.preventDefault();
-
+			
 		try {
 			await createTrip({
 				variables: { location: location, note: note },
