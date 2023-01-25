@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Col, Row, Container, Card, Form } from 'react-bootstrap';
-//import Particle from '../tsParticles/tsParticle';
 import axios from 'axios';
 import { addPerson, deleteMessage } from 'react-chat-engine';
 import env from 'react-dotenv';
@@ -84,7 +83,6 @@ const Signup = () => {
 
 	return (
 		<div className='container-fluid sign-up-background'>
-			{/* <Particle /> */}
 			<Container >
 				<Row className='vh-100 d-flex justify-content-center align-items-center'>
 					<Col md={8} lg={6} xs={12}>

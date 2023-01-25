@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Col, Button, Row, Container, Card, Form } from 'react-bootstrap';
-//import Particle from '../tsParticles/tsParticle';
 import { useNavigate } from 'react-router-dom';
 import env from 'react-dotenv';
 import { useMutation } from '@apollo/client';
@@ -10,9 +9,6 @@ import Auth from '../utils/auth';
 import './styles/login.scss';
 import './styles/signup.scss';
 import { motion } from 'framer-motion';
-
-// import Particles from "react-tsparticles";
-// import { loadFull } from "tsparticles";
 
 const projectID = env.REACT_APP_CE_PUBLIC_KEY;
 
@@ -67,7 +63,6 @@ const Login = () => {
 
 	return (
 		<div className='login-background container-fluid'>
-			{/* <Particle /> */}
 			<Container >
 				<Row className='vh-100 d-flex justify-content-center align-items-center'>
 					<Col md={8} lg={6} xs={12}>

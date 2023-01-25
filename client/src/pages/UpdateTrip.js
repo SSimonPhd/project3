@@ -4,7 +4,6 @@ import { useMutation, useQuery } from '@apollo/client';
 import { GET_TRIP } from '../utils/queries';
 import { UPDATE_TRIP } from '../utils/mutations';
 import { useNavigate } from 'react-router-dom';
-// import { GET_TRIPS } from '../../utils/queries';
 import './styles/addtrip.scss'
 import { motion } from 'framer-motion';
 
@@ -33,7 +32,6 @@ const UpdateTrip = () => {
       }
     }
   );
-
 
 	const handleFormSubmit = async (e) => {
 		e.preventDefault();
