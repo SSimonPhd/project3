@@ -12,15 +12,19 @@ Solo Traveler web app provides solo travelers a place to connect and plan upcomi
 
 ## Table of Contents
 
+- [Screenshot](#screenshot) 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Technologies Utilized](#technologies-utilized)
-- [Screenshot](#screenshot) 
 - [Deployed Application](#deployed-application)
 - [GitHub Repo](#github-repo)
 - [Presentation](#presentation)
 - [Credits](#credits)
 - [License](#license)
+
+## Screenshot
+
+![image](https://user-images.githubusercontent.com/60651145/214378891-fd956401-d2ea-4d69-bda1-126fda38244d.png)
 
 ## Installation
 
@@ -65,10 +69,6 @@ To use Solo Traveler, visit https://solo.herokuapp.com/ in your preferred browse
 - [React-Chat-Engine](https://www.npmjs.com/package/react-chat-engine)
 - [Bootstrap 5](https://www.npmjs.com/package/bootstrap)
 - [SASS](https://www.npmjs.com/package/sass)
-
-## Screenshot
-
-![image](https://user-images.githubusercontent.com/60651145/214378891-fd956401-d2ea-4d69-bda1-126fda38244d.png)
 
 ## Deployed Application
 
