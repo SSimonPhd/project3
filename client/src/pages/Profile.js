@@ -22,7 +22,7 @@ const Profile = () => {
 
 		// const navigate = useNavigate();
 		navigate('/updatetrip', { state: { tripId: e.target.dataset.id } });
-		}
+	}
 
  
 
@@ -39,7 +39,7 @@ const Profile = () => {
 					variables: { tripId: e.target.dataset.id },
 				});
 
-				window.location.reload();
+				navigate(0)
 			} catch (err) {
 				console.error(err);
 			}
