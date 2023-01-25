@@ -63,9 +63,8 @@ To use Solo Traveler, visit https://solo.herokuapp.com/ in your preferred browse
 - [React-Scripts](https://www.npmjs.com/package/react-scripts)
 - [React-dotenv](https://www.npmjs.com/package/react-dotenv)
 - [React-Chat-Engine](https://www.npmjs.com/package/react-chat-engine)
-- [Bootstrap](https://www.npmjs.com/package/bootstrap)
+- [Bootstrap 5](https://www.npmjs.com/package/bootstrap)
 - [SASS](https://www.npmjs.com/package/sass)
-- [tsParticles](https://www.npmjs.com/package/tsparticles)
 
 ## Screenshot
 
@@ -107,6 +106,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-
----
