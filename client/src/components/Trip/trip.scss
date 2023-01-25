@@ -17,7 +17,7 @@
   font-size: 20px;
 }
 
-.delete-btn {
+.brown-btn {
   width: fit-content;
   height: fit-content;
   padding: 10px;
@@ -29,7 +29,7 @@
   border: 1px solid var(--light-brown);
 }
 
-.delete-btn:hover {
+.brown-btn:hover {
   outline-color: transparent;
     outline-style:solid;
     box-shadow: 0 0 0 3px var(--red-brown);
