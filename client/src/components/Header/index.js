@@ -3,9 +3,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { removeToken } from './Logout/Logout';
 import './header.scss';
-// import Auth from '../../utils/auth';
+import Auth from '../../utils/auth';
 
 const Header = () => {
+	const loggedIn = Auth.loggedIn();
+
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="container-fluid">
@@ -61,14 +63,11 @@ const Header = () => {
 							</Link>
 						</li>
 						<li className='nav-item'>
-							<Link
-								className='nav-link'
-								onClick={removeToken}
-								to='/login'
-								// hidden={show}
-							>
-								Logout
-							</Link>
+							{
+								loggedIn ? 
+									(<Link className='nav-link' onClick={removeToken} to='/'>Logout</Link>)  :
+									(<Link className='nav-link' to='/login'>Login</Link>)
+							}
 						</li>
 					</ul>
 				</div>
